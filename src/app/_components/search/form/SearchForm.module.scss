@@ -1,0 +1,44 @@
+@import '@/_styles/variables.scss';
+
+.search-form {
+  display: flex;
+  align-items: center;
+  height: 4.5rem;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1.75rem;
+  margin-bottom: -1.25rem;
+
+  @media screen and (max-width: $max-width) {
+    padding: 0 2rem;
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      outline: none;
+      border: none;
+      padding-left: 1.5rem;
+      font-size: inherit;
+      height: 100%;
+      margin-top: 0.5rem;
+      color: $color-secondary-light;
+    }
+
+    .close-icon {
+      cursor: pointer;
+      margin-top: 0.25rem;
+      fill: darkgray;
+
+      &:hover {
+        fill: $color-black;
+      }
+    }
+  }
+}

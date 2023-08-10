@@ -1,0 +1,10 @@
+@import '@/_styles/variables.scss';
+
+.login {
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  color: $color-white;
+  cursor: pointer;
+}

@@ -1,0 +1,39 @@
+@import '@/_styles/variables.scss';
+
+.sort {
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    position: relative;
+
+    button {
+      border: none;
+      background-color: transparent;
+      font: inherit;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+
+    span {
+      position: absolute;
+      right: 0;
+      top: 0.35rem;
+    }
+  }
+
+  &.collapsed {
+    height: 5rem;
+    overflow: hidden;
+    border-bottom: 1px solid $color-border-primary;
+  }
+
+  .select {
+    font-size: $font-size-small;
+
+    div[role='searchbox'] {
+      height: 3.5rem;
+    }
+  }
+}

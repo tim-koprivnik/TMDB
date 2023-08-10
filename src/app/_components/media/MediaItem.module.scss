@@ -1,0 +1,38 @@
+@import '@/_styles/variables.scss';
+
+.media-item {
+  margin-bottom: 2rem;
+  max-width: 20rem;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+
+  img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+  }
+
+  .content {
+    padding: 1rem;
+    position: relative;
+
+    .title {
+      font-size: $font-size-base;
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    .release-date {
+      margin: 0;
+      padding: 0;
+      color: $color-neutral-light;
+    }
+  }
+}

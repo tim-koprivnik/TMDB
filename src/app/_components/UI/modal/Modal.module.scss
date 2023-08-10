@@ -1,0 +1,28 @@
+@import '@/_styles/variables.scss';
+
+.modal {
+  position: absolute;
+  background-color: $color-white;
+  border: 1px solid $color-border-primary;
+  border-radius: 3px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    left: 45%;
+    top: 1rem;
+    border: 1rem solid transparent;
+    border-top: 0;
+    border-bottom: 1rem solid $color-white;
+    transform: translate(-50%, calc(-100% - 5px));
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 100%;
+  }
+}

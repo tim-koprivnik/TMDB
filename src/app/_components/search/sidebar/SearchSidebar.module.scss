@@ -1,0 +1,24 @@
+@import '@/_styles/variables.scss';
+
+.search-results-sidebar {
+  border-radius: 3px;
+  border: 1px solid $color-bg-light;
+  margin-top: 4rem;
+  width: 25rem;
+
+  h3 {
+    padding: 2rem;
+    margin-top: -2rem;
+    margin-bottom: 0;
+    background-color: $color-primary-light;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: $color-white;
+  }
+
+  .search-categories {
+    list-style: none;
+    margin: 0.75rem 0;
+    padding: 0;
+  }
+}

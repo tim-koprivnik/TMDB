@@ -1,0 +1,8 @@
+.nav {
+    display: flex;
+    gap: 3rem;
+
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
+}

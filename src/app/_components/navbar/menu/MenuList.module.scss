@@ -1,0 +1,25 @@
+@import '@/_styles/variables.scss';
+
+.menu-item {
+  list-style: none;
+  height: 6.5rem; // Same as header height
+  align-items: center;
+  display: flex;
+
+  a {
+    text-decoration: none;
+    color: $color-white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  button {
+    cursor: pointer;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    color: $color-white;
+    font: inherit;
+    font-weight: 600;
+  }
+}

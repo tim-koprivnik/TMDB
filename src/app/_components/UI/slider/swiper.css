@@ -1,0 +1,12 @@
+.swiper-horizontal > .swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
+    height: 8px;
+    background: transparent;
+}
+
+.swiper-scrollbar-drag {
+    background: #DBDBDB;
+}
+
+.swiper-wrapper {
+    padding-left: 10rem;
+}

@@ -1,0 +1,106 @@
+@import '@/_styles/variables.scss';
+
+.trending {
+  max-height: 34.5rem;
+  margin-top: 1.5rem;
+
+  &-heading {
+    position: relative;
+    background-color: $color-highlight-light;
+    border-top: 1px solid $color-tertiary-dark;
+    border-bottom: 1px solid $color-tertiary-dark;
+    padding: 0;
+    margin: 0;
+    height: 6rem;
+    margin-bottom: -1.5rem;
+
+    @media screen and (max-width: $max-width) {
+      padding: 0 2rem;
+    }
+
+    h2 {
+      max-width: $max-width;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      padding-left: 3rem;
+      margin-top: 1.5rem;
+      font-weight: bold;
+
+      svg {
+        margin-right: 0.5rem;
+        position: absolute;
+        top: 0.5rem;
+        left: 0;
+        z-index: 100;
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    position: relative;
+    width: 100vw;
+
+    @media screen and (max-width: $max-width) {
+      padding: 0 2rem;
+    }
+
+    &.has-top-border {
+      border-top: 1px solid $color-tertiary-dark;
+    }
+
+    li {
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      list-style: none;
+      max-width: $max-width;
+      margin-left: auto;
+      margin-right: auto;
+      height: 3rem;
+
+      button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: inherit;
+        padding: 0;
+        margin: 0;
+        color: $color-black;
+        font: inherit;
+        z-index: 1;
+      }
+
+      &:hover {
+        &::after {
+          position: absolute;
+          content: '';
+          top: -1px;
+          border-bottom: 1px solid $color-black;
+          width: 100vw;
+          background: $color-secondary-light;
+          opacity: 0.1;
+          width: 100vw;
+          margin-left: -50vw;
+          left: 50%;
+        }
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        border-bottom: 1px solid $color-tertiary-dark;
+        width: 100vw;
+        margin-left: -50vw;
+        left: 50%;
+      }
+
+      span {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '@/_styles/variables.scss';
+
+.error-message-wrap {
+  &.full-screen {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background-color: $color-primary-dark;
+    color: $color-white;
+
+    button {
+      color: $color-white;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 900;
+  }
+}

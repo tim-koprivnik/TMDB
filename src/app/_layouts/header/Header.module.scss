@@ -1,0 +1,36 @@
+@import '@/_styles/variables.scss';
+
+.header {
+  background-color: $color-primary-dark;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  height: 6.5rem;
+
+  @media screen and (max-width: $max-width) {
+    padding: 0.5rem 2rem;
+  }
+
+  &-wrap {
+    max-width: $max-width;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+
+    .header-nav-wrap {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .header-additional-wrap {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+}

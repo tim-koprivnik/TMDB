@@ -1,0 +1,24 @@
+@import '@/_styles/variables.scss';
+
+.language-switcher {
+  position: relative;
+
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid $color-white;
+    color: $color-white;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 0.5rem;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-primary-dark;
+    }
+  }
+}

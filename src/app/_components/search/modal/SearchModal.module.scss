@@ -1,0 +1,16 @@
+.search-modal {
+    top: 6.5rem; // Height of the header
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    z-index: 2;
+
+    &-content {
+        position: relative;
+        width: 100vw;
+        margin-left: -1.5rem;
+    }
+}

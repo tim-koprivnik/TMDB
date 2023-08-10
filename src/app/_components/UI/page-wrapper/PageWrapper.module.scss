@@ -1,0 +1,17 @@
+@import '@/_styles/variables.scss';
+
+.page-wrapper {
+  max-width: $max-width;
+  width: 100%;
+  padding-left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  flex: 1 0 auto;
+  min-height: calc(
+    100vh - (6.5rem * 2)
+  ); // = Viewport height - (footer height * 2)
+}

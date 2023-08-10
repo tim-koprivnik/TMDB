@@ -1,0 +1,24 @@
+.logo {
+    height: 2rem;
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
+}
+
+.logo-mobile {
+    height: 6rem;
+    display: flex;
+    align-self: center;
+    display: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 992px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

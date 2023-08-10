@@ -1,0 +1,19 @@
+@import '@/_styles/variables.scss';
+
+.plus {
+  position: relative;
+
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+  }
+}
