@@ -1,0 +1,22 @@
+@import '@/_styles/variables.scss';
+
+.search-page {
+  margin-top: 5.5rem;
+}
+
+.search-tip {
+  display: flex;
+  margin-top: 1rem;
+
+  .info-icon {
+    width: 10%;
+    margin-top: 2rem;
+    margin-right: 0.5rem;
+  }
+
+  p {
+    color: $color-hover-primary;
+    width: 90%;
+    font-size: $font-size-medium;
+  }
+}

@@ -1,0 +1,98 @@
+@import '@/_styles/variables.scss';
+
+.media-details-page {
+  .hero {
+    height: 60rem;
+    width: 100vw;
+    box-sizing: border-box;
+
+    &-wrapper {
+      max-width: $max-width;
+      margin: 0 auto;
+      padding-top: 5rem;
+      display: flex;
+
+      & > div {
+        &:first-child {
+          display: flex;
+          align-items: center;
+
+          img {
+            max-height: 50rem;
+            border-radius: 3px;
+          }
+        }
+
+        &:last-child {
+          display: flex;
+          flex-direction: column;
+          margin-left: 2.5rem;
+          justify-content: center;
+
+          & * {
+            color: $color-white;
+            margin: 0.5rem;
+          }
+        }
+      }
+
+      h1 {
+        font-size: $font-size-xxxlarge;
+
+        span {
+          color: $color-accent-teal !important;
+        }
+      }
+
+      h4 {
+        span {
+          font-weight: 400;
+        }
+      }
+
+      .info {
+        display: flex;
+        margin: 0;
+        margin-top: -1rem !important;
+        gap: 1.5rem;
+
+        & > * {
+          position: relative;
+
+          &:not(:last-child)::after {
+            content: '•';
+            position: absolute;
+            top: 0;
+            right: -1.5rem;
+          }
+
+          &:empty {
+            display: none;
+
+            &::after {
+              content: none;
+            }
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: -1rem !important;
+      }
+
+      .tagline {
+        color: $color-accent-teal !important;
+        font-size: $font-size-large;
+      }
+    }
+
+    .hide-bullet {
+      &:before {
+        content: none !important;
+      }
+    }
+  }
+}

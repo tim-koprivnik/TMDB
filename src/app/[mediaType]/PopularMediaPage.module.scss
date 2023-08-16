@@ -1,0 +1,92 @@
+@import '@/_styles/variables.scss';
+
+.popular-page {
+  display: flex;
+  padding: 2rem;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  aside {
+    margin-left: -2rem;
+    padding: 0;
+
+    h2 {
+      margin: 0;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 100;
+      margin-bottom: 0.5rem;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -1rem;
+        right: -1rem;
+        top: -1rem;
+        border-top: 1px solid $color-border-primary;
+      }
+    }
+
+    .search-btn {
+      margin-top: 2rem;
+      border-radius: 14px;
+      border: none;
+      padding: 1rem;
+      background-color: $color-primary-light;
+      color: $color-white;
+      font-weight: 600;
+      font-size: $font-size-large;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-primary-dark;
+        color: $color-white;
+      }
+
+      &:disabled {
+        background-color: $color-hover-secondary;
+        color: $color-disabled;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  main {
+    margin-top: 5.7rem;
+
+    .list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+    }
+
+    button {
+      background-color: $color-primary-light;
+      margin: 0;
+      padding: 1rem;
+      min-height: 5rem;
+      max-height: 5rem;
+      border-radius: 8px;
+      border: none;
+      font-size: $font-size-xxlarge;
+      line-height: normal;
+      font-weight: 900;
+      color: $color-white;
+      cursor: pointer;
+      width: 100%;
+
+      &:hover {
+        color: $color-primary-dark;
+      }
+    }
+  }
+}
