@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import ReactDOM from 'react-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import styles from './ErrorMessage.module.scss';
+import PageWrapper from '../page-wrapper/PageWrapper';
+import Main from '../../../_layouts/main/Main';
 
 interface ErrorMessageProps {
   className?: string;
@@ -26,11 +28,11 @@ const ErrorMessage: FC<ErrorMessageProps> = ({
   const errorMessage = (
     <div
       className={`${styles['error-message-wrap']} ${className} ${
-        fullScreen ? styles.fullScreen : ''
+        fullScreen ? styles['full-screen'] : ''
       }`}
     >
-      <p className={styles['error-message']}>{children}</p>
-      {fullScreen ? (
+      <Main className={styles['error-message']}>
+        <p>{children}</p>
         <button
           type="button"
           className={styles.button}
@@ -39,13 +41,15 @@ const ErrorMessage: FC<ErrorMessageProps> = ({
           <IoArrowBackOutline size={18} />
           Go Back
         </button>
-      ) : null}
+      </Main>
     </div>
   );
 
-  return fullScreen
-    ? ReactDOM.createPortal(errorMessage, document.body)
-    : errorMessage;
+  return fullScreen ? (
+    ReactDOM.createPortal(errorMessage, document.body)
+  ) : (
+    <PageWrapper>{errorMessage}</PageWrapper>
+  );
 };
 
 export default ErrorMessage;

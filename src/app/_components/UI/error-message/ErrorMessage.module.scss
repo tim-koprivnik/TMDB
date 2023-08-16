@@ -13,13 +13,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 100;
     background-color: $color-primary-dark;
     color: $color-white;
+    z-index: 300;
 
     button {
       color: $color-white;
     }
+  }
+
+  .error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    padding: 2rem;
   }
 
   button {
