@@ -10,15 +10,15 @@ const Logo: FC = () => (
     <Image
       src="/assets/images/tmdb-logo.svg"
       alt="TMDB logo"
-      width={100}
-      height={50}
+      width={160}
+      height={20}
       className={styles.logo}
     />
     <Image
       src="/assets/images/tmdb-logo-mobile.jpg"
       alt="TMDB logo"
       width={100}
-      height={50}
+      height={60}
       className={styles['logo-mobile']}
     />
   </Link>

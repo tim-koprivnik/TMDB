@@ -27,8 +27,8 @@ const MediaItem: FC<MediaItemProps> = ({
       <Image
         src={`https://image.tmdb.org/t/p/w200${media.poster_path}`}
         alt={media[mediaProperty]?.toString() || ''}
-        width={500}
-        height={500}
+        width={200}
+        height={280}
         onError={(e: SyntheticEvent<HTMLImageElement>) => {
           e.currentTarget.src =
             '/assets/images/placeholder-media-details-image.png';

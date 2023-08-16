@@ -2,9 +2,9 @@
 
 import { useState, useEffect, FC } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
 import styles from './SearchResults.module.scss';
 import useFetch from '../../../_hooks/useFetch';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../../_store/store';
 import Pagination from '../pagination/Pagination';
 import MovieTvResult from '../result-types/MovieTvResult';

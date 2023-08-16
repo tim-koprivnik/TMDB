@@ -1,0 +1,15 @@
+.search-modal {
+  top: 6.5rem;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  z-index: 2;
+}
+.search-modal-content {
+  position: relative;
+  width: 100vw;
+  margin-left: -1.5rem;
+}/*# sourceMappingURL=SearchModal.module.css.map */

@@ -1,0 +1,13 @@
+.plus-modal {
+  top: 3.5rem;
+  right: -12rem;
+  min-width: 24rem;
+  z-index: 999;
+}
+.plus-modal::before {
+  left: 46%;
+}
+.plus-modal p {
+  margin-top: 0;
+  margin-bottom: 0;
+}/*# sourceMappingURL=PlusModal.module.css.map */
