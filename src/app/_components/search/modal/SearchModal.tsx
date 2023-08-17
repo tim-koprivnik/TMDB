@@ -66,6 +66,7 @@ const SearchModal: FC<SearchModalProps> = ({
             onItemClick={onItemClick}
             showTrending={showTrending}
             setShowTrending={setShowTrending}
+            inputValue={inputValue}
           />
         )}
       </div>

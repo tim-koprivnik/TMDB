@@ -61,7 +61,7 @@ const SearchResults: FC<SearchResultsProps> = ({
 
   const handlePageChange = (newPage: number | string) => {
     setCurrentPage?.(newPage);
-    router.push(
+    router.replace(
       `/search/${selectedCategory}?page=${newPage}&query=${searchQuery}`
     );
   };

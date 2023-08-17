@@ -9,16 +9,16 @@ import {
   FormEvent,
   useEffect,
 } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './Search.module.scss';
 import { setSearchQuery } from '../../_store/search/searchSlice';
 import { RootState } from '../../_store/store';
 import { debounce } from '../../_utils/helpers';
 import SearchModal from './modal/SearchModal';
+import styles from './Search.module.scss';
 
 interface SearchProps {
   showIcon?: boolean;
@@ -31,35 +31,18 @@ const Search: FC<SearchProps> = ({
   showTrending = false,
   setSelectedCategory,
 }) => {
-  const searchQuery = useSelector(
-    (state: RootState) => state.search.searchQuery
-  );
-
   const [isOpen, setIsOpen] = useState(false);
   const [showTrendingItems, setShowTrendingItems] = useState(showTrending);
   const [inputValue, setInputValue] = useState('');
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const searchIconColor = useMemo(() => ({ color: '#04A1CF' }), []);
-  const closeIconColor = useMemo(() => ({ color: 'white' }), []);
-
   const router = useRouter();
+  const pathname = usePathname();
   const dispatch = useDispatch();
 
-  useEffect(
-    () => () => {
-      dispatch(setSearchQuery(''));
-    },
-    [dispatch]
-  );
-
-  useEffect(
-    () => () => {
-      setInputValue('');
-    },
-    [isOpen]
-  );
+  const searchIconColor = useMemo(() => ({ color: '#04A1CF' }), []);
+  const closeIconColor = useMemo(() => ({ color: 'white' }), []);
 
   const handleShowModal = () => {
     setIsOpen(true);
@@ -72,19 +55,28 @@ const Search: FC<SearchProps> = ({
     setIsOpen(false);
   };
 
-  const debouncedSearchQuery = useMemo(
+  const debouncedUpdateUrl = useMemo(
     () =>
       debounce((search: string) => {
-        dispatch(setSearchQuery(search));
+        router.replace(`/search?query=${encodeURIComponent(search)}`);
       }, 300),
-    [dispatch]
+    [router]
+  );
+
+  const debouncedSetInputValue = useMemo(
+    () => debounce(setInputValue, 300),
+    []
   );
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setShowTrendingItems(value !== '');
     setInputValue(value);
-    debouncedSearchQuery(value);
+    debouncedSetInputValue(value);
+
+    if (pathname === '/search') {
+      debouncedUpdateUrl(value);
+    }
   };
 
   const handleInputClick = () => {
@@ -101,15 +93,29 @@ const Search: FC<SearchProps> = ({
     e.preventDefault();
     setSelectedCategory?.('');
     setShowTrendingItems(false);
-    router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+    router.replace(`/search?query=${encodeURIComponent(inputValue)}`);
   };
 
   const handleTrendingItemClick = (query: string) => {
     setSelectedCategory?.('');
     setShowTrendingItems(false);
     dispatch(setSearchQuery(query));
-    router.push(`/search/?query=${encodeURIComponent(query)}`);
+    router.replace(`/search/?query=${encodeURIComponent(query)}`);
   };
+
+  useEffect(
+    () => () => {
+      dispatch(setSearchQuery(''));
+    },
+    [dispatch]
+  );
+
+  useEffect(
+    () => () => {
+      setInputValue('');
+    },
+    [isOpen]
+  );
 
   return (
     <div className={styles.search}>

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, SyntheticEvent } from 'react';
+import { FC, SyntheticEvent, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../results/SearchResults.module.scss';
@@ -27,17 +27,20 @@ const MovieTvResult: FC<MovieTvResultProps> = ({ result, category = '' }) => {
   const truncatedOverview =
     overview.length > 200 ? `${overview.slice(0, 200)}...` : overview;
   const mediaType = result.media_type || category;
+  const [imgSrc, setImgSrc] = useState(
+    `https://image.tmdb.org/t/p/w500${result.poster_path}`
+  );
 
   return (
     <div className={styles['result-movie-tv']}>
       <div className={styles.image}>
         <Image
-          src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+          src={imgSrc}
           alt={result.title || result.name || ''}
           width={500}
           height={500}
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
-            e.currentTarget.src = '/assets/images/placeholder-movie-image.jpeg';
+            setImgSrc('/assets/images/placeholder-movie-image.jpeg');
           }}
         />
       </div>

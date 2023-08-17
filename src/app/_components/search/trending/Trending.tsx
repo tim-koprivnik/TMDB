@@ -8,14 +8,15 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import { HiTrendingUp } from 'react-icons/hi';
-import { FaSearch } from 'react-icons/fa';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './Trending.module.scss';
 import useFetch from '../../../_hooks/useFetch';
 import { removeDuplicates } from '../../../_utils/helpers';
 import { setSearchQuery } from '../../../_store/search/searchSlice';
 import { RootState } from '../../../_store/store';
+import { HiTrendingUp } from 'react-icons/hi';
+import { FaSearch } from 'react-icons/fa';
+import styles from './Trending.module.scss';
 
 interface TrendingResult {
   id: number;
@@ -35,20 +36,35 @@ interface TrendingProps {
   onItemClick: (query: string) => void;
   showTrending: boolean;
   setShowTrending: Dispatch<SetStateAction<boolean>>;
+  inputValue?: string;
 }
 
 const Trending: FC<TrendingProps> = ({
   onItemClick,
   showTrending,
   setShowTrending,
+  inputValue = '',
 }) => {
   const [trendingItems, setTrendingItems] = useState<TrendingResult[]>([]);
   const trendingRef = useRef<null | HTMLDivElement>(null);
-  const searchQuery = useSelector(
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const dispatch = useDispatch();
+
+  const urlSearchQuery = searchParams.get('query') || '';
+  const reduxSearchQuery = useSelector(
     (state: RootState) => state.search.searchQuery
   );
 
-  const dispatch = useDispatch();
+  let searchQuery = reduxSearchQuery;
+  if (pathname === '/') {
+    searchQuery = inputValue || '';
+  } else if (pathname === '/search') {
+    searchQuery = urlSearchQuery;
+  }
 
   const url = searchQuery
     ? `https://api.themoviedb.org/3/search/multi?api_key=${MOVIEDB_API_KEY}&query=${searchQuery}`

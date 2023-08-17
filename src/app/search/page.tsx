@@ -1,9 +1,8 @@
 'use client';
 
-import { FC, useState, useEffect, useMemo } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { BsInfoCircleFill } from 'react-icons/bs';
-// import { Metadata } from 'next';
-import { useRouter, useParams, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './SearchPage.module.scss';
 import PageWrapper from '../_components/UI/page-wrapper/PageWrapper';
@@ -16,11 +15,6 @@ import { setSearchQuery } from '../_store/search/searchSlice';
 import { RootState } from '../_store/store';
 import useFetchMultiple from '../_hooks/useFetchMultiple';
 
-// export const metadata: Metadata = {
-//   description: 'Search for movies, TV shows, people, and more',
-// };
-
-// const { MOVIEDB_API_KEY = '' } = process.env;
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 interface CategoryCounts {
@@ -57,35 +51,29 @@ const SearchPage: FC = () => {
     keyword: 0,
   });
 
-  const searchQuery = useSelector(
-    (state: RootState) => state.search.searchQuery
-  );
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const dispatch = useDispatch();
 
-  // const urls = useMemo(
-  //   () =>
-  //     categories.map(
-  //       category =>
-  //         `https://api.themoviedb.org/3/search/${category}?api_key=${MOVIEDB_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
-  //     ),
-  //   [searchQuery]
-  // );
+  const searchQuery = searchParams.get('query') || '';
+
   const urls = categories.map(
     category =>
       `https://api.themoviedb.org/3/search/${category}?api_key=${MOVIEDB_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
   );
 
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const dispatch = useDispatch();
-
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
     const pageParam = currentPage === 1 ? '' : `&page=${currentPage}`;
-    router.push(`/search/${category}?query=${searchQuery}${pageParam}`);
+    router.replace(`/search/${category}?query=${searchQuery}${pageParam}`);
   };
 
   const { data, loading, error } = useFetchMultiple(urls, [searchQuery]);
+
+  useEffect(() => {
+    dispatch(setSearchQuery(searchQuery));
+  }, [searchQuery, dispatch]);
 
   useEffect(() => {
     if (data && !loading && !error) {
@@ -108,13 +96,6 @@ const SearchPage: FC = () => {
       setCategoryCounts(newCategoryCounts);
     }
   }, [data, loading, error]);
-
-  useEffect(() => {
-    const query = searchParams.get('query') || '';
-    if (query !== searchQuery) {
-      dispatch(setSearchQuery(query));
-    }
-  }, [searchParams, searchQuery, dispatch]);
 
   return (
     <>
