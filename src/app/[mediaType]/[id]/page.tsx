@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, SyntheticEvent } from 'react';
+import { FC, SyntheticEvent, useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 // import { Metadata } from 'next';
 import Image from 'next/image';
@@ -64,6 +64,15 @@ const MediaDetailsPage: FC = () => {
     error,
   } = useFetch<MediaDetailsData | null>(url);
 
+  const [imgSrc, setImgSrc] = useState('');
+  useEffect(() => {
+    if (details?.poster_path) {
+      setImgSrc(`https://image.tmdb.org/t/p/w500${details.poster_path}`);
+    } else {
+      setImgSrc('/assets/images/placeholder-media-details-image.png');
+    }
+  }, [details?.poster_path]);
+
   if (loading) {
     return <Loader fullScreen />;
   }
@@ -102,13 +111,12 @@ const MediaDetailsPage: FC = () => {
           <div className={styles['hero-wrapper']}>
             <div>
               <Image
-                src={`https://image.tmdb.org/t/p/w500${details?.poster_path}`}
+                src={imgSrc}
                 alt={details?.title}
                 width={350}
                 height={500}
                 onError={(e: SyntheticEvent<HTMLImageElement>) => {
-                  e.currentTarget.src =
-                    '/assets/images/placeholder-media-details-image.png';
+                  setImgSrc('/assets/images/placeholder-movie-image.jpeg');
                 }}
               />
             </div>
