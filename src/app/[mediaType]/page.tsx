@@ -50,13 +50,10 @@ const PopularMediaPage: FC = () => {
   );
   const [isFiltersVisible, setIsFiltersVisible] = useState(true);
   const [lastSearchCriteria, setLastSearchCriteria] = useState('');
-
   const loadMoreRef = useRef<HTMLButtonElement | null>(null);
   const mediaTypeRef = useRef(mediaType);
   const pageRef = useRef(page);
-
   const pathname = usePathname();
-
   const dispatch = useDispatch();
 
   const { isLoading, isError, error } = useMediaFetch({
