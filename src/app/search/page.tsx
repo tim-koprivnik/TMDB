@@ -40,6 +40,11 @@ const categories = [
 ];
 
 const SearchPage: FC = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const dispatch = useDispatch();
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryCounts, setCategoryCounts] = useState<CategoryCounts>({
@@ -50,10 +55,6 @@ const SearchPage: FC = () => {
     company: 0,
     keyword: 0,
   });
-
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const dispatch = useDispatch();
 
   const searchQuery = searchParams.get('query') || '';
 

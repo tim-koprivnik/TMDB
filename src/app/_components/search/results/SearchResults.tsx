@@ -66,13 +66,6 @@ const SearchResults: FC<SearchResultsProps> = ({
     );
   };
 
-  useEffect(() => {
-    if (searchQuery && !loading && !error && data && data.results) {
-      setResults(data.results);
-      setTotalPages(Math.ceil(data.total_results / 20));
-    }
-  }, [searchQuery, selectedCategory, currentPage, data, loading, error]);
-
   const renderResult = (result: SearchResult, index: number) => {
     const category = result.media_type || selectedCategory;
 
@@ -100,6 +93,13 @@ const SearchResults: FC<SearchResultsProps> = ({
 
     return null;
   };
+
+  useEffect(() => {
+    if (searchQuery && !loading && !error && data && data.results) {
+      setResults(data.results);
+      setTotalPages(Math.ceil(data.total_results / 20));
+    }
+  }, [searchQuery, selectedCategory, currentPage, data, loading, error]);
 
   return (
     <>
