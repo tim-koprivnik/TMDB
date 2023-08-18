@@ -30,8 +30,9 @@ const PersonResult: FC<PersonResultProps> = ({ result }) => {
           width={500}
           height={500}
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
-            e.currentTarget.src =
-              '/assets/images/placeholder-profile-image.png';
+            e.currentTarget.src = setImgSrc(
+              '/assets/images/placeholder-profile-image.png'
+            );
           }}
         />
       </div>
