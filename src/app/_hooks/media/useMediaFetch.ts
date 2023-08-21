@@ -62,11 +62,22 @@ const useMediaFetch = ({
 
   useEffect(() => {
     if (mediaData && !mediaError) {
+      let newMediaList = [];
       if (page === 1) {
-        dispatch(setTotalPages(mediaData.totalPages));
-        dispatch(setMedia(mediaData.results));
+        newMediaList = mediaData.results;
       } else {
-        dispatch(setMedia([...media, ...mediaData.results]));
+        const newResults = mediaData.results.filter(
+          result => !media.some(mediaItem => mediaItem.id === result.id)
+        );
+        newMediaList = [...media, ...newResults];
+      }
+
+      if (
+        newMediaList.length !== media.length ||
+        !newMediaList.every((item, index) => item.id === media[index].id)
+      ) {
+        dispatch(setTotalPages(mediaData.totalPages));
+        dispatch(setMedia(newMediaList));
       }
     }
   }, [mediaData, mediaError, dispatch, media, page]);

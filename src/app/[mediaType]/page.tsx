@@ -94,9 +94,9 @@ const PopularMediaPage: FC = () => {
   useEffect(() => {
     const currentMediaType = pathname === '/tv' ? 'tv' : 'movie';
     if (mediaTypeRef.current !== currentMediaType) {
+      dispatch(setMedia([]));
       dispatch(setActiveSort('popularity.desc'));
       dispatch(setActiveFilter([]));
-      dispatch(setMedia([]));
       dispatch(setPage(1));
       dispatch(setMediaType(currentMediaType));
       mediaTypeRef.current = currentMediaType;
@@ -117,34 +117,33 @@ const PopularMediaPage: FC = () => {
     pageRef.current = page;
   }, [page]);
 
-  // Causes infinite loop
-  // useEffect(() => {
-  //   const currentLoadMoreRef = loadMoreRef.current;
+  useEffect(() => {
+    const currentLoadMoreRef = loadMoreRef.current;
 
-  //   const observer = new IntersectionObserver(
-  //     entries => {
-  //       if (
-  //         hasClickedLoadMore &&
-  //         entries[0].isIntersecting &&
-  //         pageRef.current < totalPages &&
-  //         !isLoading
-  //       ) {
-  //         dispatch(setPage(pageRef.current + 1));
-  //       }
-  //     },
-  //     { threshold: 0 }
-  //   );
+    const observer = new IntersectionObserver(
+      entries => {
+        if (
+          !isLoading &&
+          hasClickedLoadMore &&
+          entries[0].isIntersecting &&
+          pageRef.current < totalPages
+        ) {
+          dispatch(setPage(pageRef.current + 1));
+        }
+      },
+      { threshold: 0 }
+    );
 
-  //   if (currentLoadMoreRef) {
-  //     observer.observe(currentLoadMoreRef);
-  //   }
+    if (currentLoadMoreRef) {
+      observer.observe(currentLoadMoreRef);
+    }
 
-  //   return () => {
-  //     if (currentLoadMoreRef) {
-  //       observer.unobserve(currentLoadMoreRef);
-  //     }
-  //   };
-  // }, [hasClickedLoadMore, totalPages, dispatch, isLoading]);
+    return () => {
+      if (currentLoadMoreRef) {
+        observer.unobserve(currentLoadMoreRef);
+      }
+    };
+  }, [hasClickedLoadMore, totalPages, dispatch, isLoading]);
 
   let pageTitle: string;
   let mediaProperty: string;
@@ -198,7 +197,7 @@ const PopularMediaPage: FC = () => {
           <ul className={styles.list}>
             {media?.map(m => (
               <MediaItem
-                key={m.id}
+                key={`${mediaType}-${m.id}`}
                 media={m}
                 mediaType={mediaType}
                 mediaProperty={mediaProperty}
