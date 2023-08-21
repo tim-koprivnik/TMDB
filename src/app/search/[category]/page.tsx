@@ -2,18 +2,23 @@
 
 import { FC, useState, useEffect } from 'react';
 import { BsInfoCircleFill } from 'react-icons/bs';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import {
+  useRouter,
+  useSearchParams,
+  useParams,
+  usePathname,
+} from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './SearchPage.module.scss';
-import PageWrapper from '../_components/UI/page-wrapper/PageWrapper';
-import Main from '../_layouts/main/Main';
-import Sidebar from '../_layouts/sidebar/Sidebar';
-import SearchSidebar from '../_components/search/sidebar/SearchSidebar';
-import SearchResults from '../_components/search/results/SearchResults';
-import Search from '../_components/search/Search';
-import { setSearchQuery } from '../_store/search/searchSlice';
-import { RootState } from '../_store/store';
-import useFetchMultiple from '../_hooks/useFetchMultiple';
+import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
+import Main from '../../_layouts/main/Main';
+import Sidebar from '../../_layouts/sidebar/Sidebar';
+import SearchSidebar from '../../_components/search/sidebar/SearchSidebar';
+import SearchResults from '../../_components/search/results/SearchResults';
+import Search from '../../_components/search/Search';
+import { setSearchQuery } from '../../_store/search/searchSlice';
+import { RootState } from '../../_store/store';
+import useFetchMultiple from '../../_hooks/useFetchMultiple';
 
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
@@ -39,10 +44,11 @@ const categories = [
   'keyword',
 ];
 
-const SearchPage: FC = () => {
+const SearchPageWithCategory: FC = () => {
   const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
+  const params = useParams();
+  const pathname = usePathname();
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +60,7 @@ const SearchPage: FC = () => {
     company: 0,
     keyword: 0,
   });
-
+  const selectedCategory = (params.category as string) || '';
   const searchQuery = searchParams.get('query') || '';
 
   const urls = categories.map(
@@ -105,6 +111,7 @@ const SearchPage: FC = () => {
         <Sidebar>
           <SearchSidebar
             onCategoryClick={handleCategoryClick}
+            selectedCategory={selectedCategory}
             categoryCounts={categoryCounts}
           />
           <div className={styles['search-tip']}>
@@ -117,6 +124,7 @@ const SearchPage: FC = () => {
         </Sidebar>
         <Main>
           <SearchResults
+            selectedCategory={selectedCategory}
             currentPage={currentPage}
             setCurrentPage={(page: string | number) =>
               setCurrentPage(Number(page))
@@ -128,4 +136,4 @@ const SearchPage: FC = () => {
   );
 };
 
-export default SearchPage;
+export default SearchPageWithCategory;
