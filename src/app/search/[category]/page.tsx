@@ -2,13 +2,22 @@
 
 import { FC, useState, useEffect } from 'react';
 import { BsInfoCircleFill } from 'react-icons/bs';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchQuery } from '../../_store/search/searchSlice';
+import { RootState } from '../../_store/store';
+import useFetchMultiple from '../../_hooks/useFetchMultiple';
 import {
   useRouter,
-  useSearchParams,
   useParams,
+  useSearchParams,
   usePathname,
 } from 'next/navigation';
-import { useSelector, useDispatch } from 'react-redux';
+import {
+  categories,
+  CategoryCounts,
+  CategoryData,
+} from '../../_hooks/search/useSearchLogic';
+import { useSearchLogic } from '../../_hooks/search/useSearchLogic';
 import styles from './SearchPage.module.scss';
 import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
 import Main from '../../_layouts/main/Main';
@@ -16,97 +25,18 @@ import Sidebar from '../../_layouts/sidebar/Sidebar';
 import SearchSidebar from '../../_components/search/sidebar/SearchSidebar';
 import SearchResults from '../../_components/search/results/SearchResults';
 import Search from '../../_components/search/Search';
-import { setSearchQuery } from '../../_store/search/searchSlice';
-import { RootState } from '../../_store/store';
-import useFetchMultiple from '../../_hooks/useFetchMultiple';
-
-const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
-
-interface CategoryCounts {
-  movie: number;
-  tv: number;
-  person: number;
-  collection: number;
-  company: number;
-  keyword: number;
-}
-
-interface CategoryData {
-  total_results: number;
-}
-
-const categories = [
-  'movie',
-  'tv',
-  'person',
-  'collection',
-  'company',
-  'keyword',
-];
 
 const SearchPageWithCategory: FC = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const {
+    searchQuery,
+    handleCategoryClick,
+    categoryCounts,
+    currentPage,
+    setCurrentPage,
+  } = useSearchLogic();
+
   const params = useParams();
-  const pathname = usePathname();
-  const dispatch = useDispatch();
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [categoryCounts, setCategoryCounts] = useState<CategoryCounts>({
-    movie: 0,
-    tv: 0,
-    person: 0,
-    collection: 0,
-    company: 0,
-    keyword: 0,
-  });
   const selectedCategory = (params.category as string) || '';
-  const reduxSearchQuery = useSelector(
-    (state: RootState) => state.search.searchQuery
-  );
-  const searchQueryFromURL = searchParams.get('query');
-  const searchQuery = searchQueryFromURL || reduxSearchQuery || '';
-
-  const urls = categories.map(
-    category =>
-      `https://api.themoviedb.org/3/search/${category}?api_key=${MOVIEDB_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
-  );
-
-  const { data, loading, error } = useFetchMultiple(urls, [searchQuery]);
-
-  const handleCategoryClick = (category: string) => {
-    setCurrentPage(1);
-    const updatedPath = `/search/${category}?query=${searchQuery}`;
-    if (pathname !== updatedPath) {
-      router.push(updatedPath);
-    }
-  };
-
-  useEffect(() => {
-    dispatch(setSearchQuery(searchQuery));
-  }, [searchQuery, dispatch]);
-
-  useEffect(() => {
-    if (data && !loading && !error) {
-      const initialCounts: CategoryCounts = {
-        movie: 0,
-        tv: 0,
-        person: 0,
-        collection: 0,
-        company: 0,
-        keyword: 0,
-      };
-      const newCategoryCounts: CategoryCounts = (data as CategoryData[]).reduce(
-        (prev, curr: CategoryData, index) => ({
-          ...prev,
-          [categories[index]]: curr.total_results,
-        }),
-        initialCounts
-      );
-
-      setCategoryCounts(newCategoryCounts);
-    }
-  }, [data, loading, error]);
 
   return (
     <>
