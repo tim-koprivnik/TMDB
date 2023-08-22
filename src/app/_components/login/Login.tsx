@@ -2,15 +2,20 @@
 
 import { FC, MouseEvent } from 'react';
 import styles from './Login.module.scss';
+import { useRouter } from 'next/navigation';
 
-interface LoginProps {
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
-}
+const Login: FC = () => {
+  const router = useRouter();
 
-const Login: FC<LoginProps> = ({ onClick }) => (
-  <button type="button" className={styles.login} onClick={onClick}>
-    Login
-  </button>
-);
+  const handleLoginClick = () => {
+    router.push('/login');
+  };
+
+  return (
+    <button type="button" className={styles.login} onClick={handleLoginClick}>
+      Login
+    </button>
+  );
+};
 
 export default Login;

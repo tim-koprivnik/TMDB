@@ -58,11 +58,11 @@ const SearchForm: FC<SearchFormProps> = ({
           placeholder="Search for a movie, tv show, person..."
           aria-label="Search for movies or TV shows"
           value={inputValue}
+          ref={inputRef}
           onChange={onInputChange}
           onClick={onInputClick}
-          ref={inputRef}
-          onBlur={handleInputBlur}
           onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
         />
         {searchQuery && (
           <IoClose

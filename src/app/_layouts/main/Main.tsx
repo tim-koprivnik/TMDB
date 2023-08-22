@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactNode, FC } from 'react';
 import styles from './Main.module.scss';
 

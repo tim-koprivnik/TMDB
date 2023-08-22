@@ -1,16 +1,21 @@
 'use client';
 
 import { MouseEvent, FC } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './Join.module.scss';
 
-interface JoinProps {
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
-}
+const Join: FC = () => {
+  const router = useRouter();
 
-const Join: FC<JoinProps> = ({ onClick }) => (
-  <button type="button" className={styles.join} onClick={onClick}>
-    Join
-  </button>
-);
+  const handleJoinClick = () => {
+    router.push('/join');
+  };
+
+  return (
+    <button type="button" className={styles.join} onClick={handleJoinClick}>
+      Join
+    </button>
+  );
+};
 
 export default Join;

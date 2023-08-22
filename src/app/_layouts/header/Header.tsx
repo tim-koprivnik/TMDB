@@ -1,7 +1,4 @@
-'use client';
-
 import { FC } from 'react';
-import { useRouter } from 'next/navigation';
 import styles from './Header.module.scss';
 import Navbar from '../../_components/navbar/Navbar';
 import LanguageSwitcher from '../../_components/language-switcher/LanguageSwitcher';
@@ -12,16 +9,6 @@ import Search from '../../_components/search/Search';
 import Logo from '../../_components/logo/Logo';
 
 const Header: FC = () => {
-  const router = useRouter();
-
-  const handleLoginClick = () => {
-    router.push('/login');
-  };
-
-  const handleJoinClick = () => {
-    router.push('/join');
-  };
-
   return (
     <header className={styles.header}>
       <div className={styles['header-wrap']}>
@@ -32,9 +19,9 @@ const Header: FC = () => {
         <div className={styles['header-additional-wrap']}>
           <Plus />
           <LanguageSwitcher />
-          <Login onClick={handleLoginClick} />
-          <Join onClick={handleJoinClick} />
-          <Search showIcon showTrending />
+          <Login />
+          <Join />
+          <Search showSearchIcon showTrending />
         </div>
       </div>
     </header>

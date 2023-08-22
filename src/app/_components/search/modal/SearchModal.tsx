@@ -53,20 +53,20 @@ const SearchModal: FC<SearchModalProps> = ({
     <Modal onClose={onClose} className={styles['search-modal']}>
       <div className={styles['search-modal-content']}>
         <SearchForm
+          inputValue={inputValue}
+          inputRef={inputRef}
+          setShowTrending={setShowTrending}
           onInputChange={onInputChange}
           onFormSubmit={onFormSubmit}
           onInputClick={onInputClick}
           onClearInput={onClearInput}
-          inputRef={inputRef}
-          setShowTrending={setShowTrending}
-          inputValue={inputValue}
         />
         {showTrending && (
           <Trending
-            onItemClick={onItemClick}
+            inputValue={inputValue}
             showTrending={showTrending}
             setShowTrending={setShowTrending}
-            inputValue={inputValue}
+            onItemClick={onItemClick}
           />
         )}
       </div>
