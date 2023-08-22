@@ -5,7 +5,6 @@ import { BsInfoCircleFill } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchQuery } from '../../_store/search/searchSlice';
 import { RootState } from '../../_store/store';
-import useFetchMultiple from '../../_hooks/useFetchMultiple';
 import {
   useRouter,
   useParams,

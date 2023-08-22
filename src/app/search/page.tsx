@@ -6,7 +6,6 @@ import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchQuery } from '../_store/search/searchSlice';
 import { RootState } from '../_store/store';
-import useFetchMultiple from '../_hooks/useFetchMultiple';
 import {
   categories,
   CategoryCounts,
