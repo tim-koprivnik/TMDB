@@ -61,7 +61,11 @@ const SearchPageWithCategory: FC = () => {
     keyword: 0,
   });
   const selectedCategory = (params.category as string) || '';
-  const searchQuery = searchParams.get('query') || '';
+  const reduxSearchQuery = useSelector(
+    (state: RootState) => state.search.searchQuery
+  );
+  const searchQueryFromURL = searchParams.get('query');
+  const searchQuery = searchQueryFromURL || reduxSearchQuery || '';
 
   const urls = categories.map(
     category =>
@@ -106,7 +110,7 @@ const SearchPageWithCategory: FC = () => {
 
   return (
     <>
-      <Search showTrending setSelectedCategory={handleCategoryClick} />
+      <Search showTrending />
       <PageWrapper className={styles['search-page']}>
         <Sidebar>
           <SearchSidebar

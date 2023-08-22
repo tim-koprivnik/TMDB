@@ -9,7 +9,7 @@ import {
   FormEvent,
   useEffect,
 } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
@@ -21,25 +21,25 @@ import SearchModal from './modal/SearchModal';
 import styles from './Search.module.scss';
 
 interface SearchProps {
-  showIcon?: boolean;
+  showSearchIcon?: boolean;
   showTrending?: boolean;
-  setSelectedCategory?: (category: string) => void;
 }
 
 const Search: FC<SearchProps> = ({
-  showIcon = false,
+  showSearchIcon = false,
   showTrending = false,
-  setSelectedCategory,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showTrendingItems, setShowTrendingItems] = useState(showTrending);
-  const [inputValue, setInputValue] = useState('');
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const dispatch = useDispatch();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [showTrendingItems, setShowTrendingItems] = useState(showTrending);
+  const searchQueryFromURL = searchParams.get('query');
+  const [inputValue, setInputValue] = useState(searchQueryFromURL || '');
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const searchIconColor = useMemo(() => ({ color: '#04A1CF' }), []);
   const closeIconColor = useMemo(() => ({ color: 'white' }), []);
@@ -63,16 +63,10 @@ const Search: FC<SearchProps> = ({
     [router]
   );
 
-  const debouncedSetInputValue = useMemo(
-    () => debounce(setInputValue, 300),
-    []
-  );
-
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setShowTrendingItems(value !== '');
     setInputValue(value);
-    debouncedSetInputValue(value);
 
     if (pathname === '/search') {
       debouncedUpdateUrl(value);
@@ -91,13 +85,12 @@ const Search: FC<SearchProps> = ({
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setSelectedCategory?.('');
     setShowTrendingItems(false);
+    dispatch(setSearchQuery(inputValue));
     router.replace(`/search?query=${encodeURIComponent(inputValue)}`);
   };
 
   const handleTrendingItemClick = (query: string) => {
-    setSelectedCategory?.('');
     setShowTrendingItems(false);
     dispatch(setSearchQuery(query));
     router.replace(`/search/?query=${encodeURIComponent(query)}`);
@@ -117,9 +110,13 @@ const Search: FC<SearchProps> = ({
     [isOpen]
   );
 
+  useEffect(() => {
+    setInputValue(searchQueryFromURL || '');
+  }, [searchQueryFromURL]);
+
   return (
     <div className={styles.search}>
-      {showIcon ? (
+      {showSearchIcon ? (
         <button type="button" onClick={handleShowModal}>
           {!isOpen && (
             <IconContext.Provider value={searchIconColor}>
@@ -134,7 +131,7 @@ const Search: FC<SearchProps> = ({
         </button>
       ) : null}
 
-      {(isOpen || !showIcon) && (
+      {(isOpen || !showSearchIcon) && (
         <SearchModal
           onClose={handleHideModal}
           onInputChange={handleInputChange}
