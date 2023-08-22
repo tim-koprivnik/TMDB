@@ -60,9 +60,9 @@ const Trending: FC<TrendingProps> = ({
   );
 
   let searchQuery = reduxSearchQuery;
-  if (pathname === '/') {
+  if (pathname !== '/search') {
     searchQuery = inputValue || '';
-  } else if (pathname === '/search') {
+  } else {
     searchQuery = urlSearchQuery;
   }
 
