@@ -12,8 +12,8 @@ interface LoaderProps {
 const Loader: FC<LoaderProps> = ({ className = '', fullScreen = false }) => {
   const loader = (
     <div
-      className={`${styles.loaderWrap} ${className} ${
-        fullScreen ? styles.fullScreen : ''
+      className={`${styles['loader-wrap']} ${className} ${
+        fullScreen ? styles['full-screen'] : ''
       }`}
     >
       {' '}

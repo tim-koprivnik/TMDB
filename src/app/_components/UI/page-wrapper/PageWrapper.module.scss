@@ -12,6 +12,6 @@
   gap: 3rem;
   flex: 1 0 auto;
   min-height: calc(
-    100vh - (6.5rem * 2)
-  ); // = Viewport height - (footer height * 2)
+    100vh - (6.5rem + 6.5rem)
+  ); // = Viewport height - (header height + footer height)
 }

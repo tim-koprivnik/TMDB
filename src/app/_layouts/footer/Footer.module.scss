@@ -1,11 +1,12 @@
 @import '@/_styles/variables.scss';
 
 .footer {
-  flex-shrink: 0;
   width: 100%;
   height: 6.5rem;
   z-index: 200;
   background-color: $color-primary-dark;
+  flex-shrink: 0;
+  flex-grow: 0;
 
   p {
     margin: 0;
