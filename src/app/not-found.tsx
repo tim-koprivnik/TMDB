@@ -9,7 +9,7 @@ import styles from './ErrorPage.module.scss';
 export default function NotFound() {
   const router = useRouter();
 
-  const message = 'Page not found. Try something else.';
+  const message = 'Could not find requested resource.';
 
   const handleNavigateBack = () => {
     router.back();
@@ -18,7 +18,7 @@ export default function NotFound() {
   return (
     <PageWrapper>
       <Main className={styles['error-page']}>
-        <h2>Oops!</h2>
+        <h2>Not found!</h2>
         <p>{message}</p>
         <button type="button" onClick={handleNavigateBack}>
           <IoArrowBackOutline size={18} />
