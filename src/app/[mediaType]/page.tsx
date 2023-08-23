@@ -3,7 +3,6 @@
 import { FC, useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { usePathname } from 'next/navigation';
-// import { Metadata } from 'next';
 import styles from './PopularMediaPage.module.scss';
 import PageWrapper from '../_components/UI/page-wrapper/PageWrapper';
 import Sidebar from '../_layouts/sidebar/Sidebar';
@@ -16,10 +15,6 @@ import ErrorMessage from '../_components/UI/error-message/ErrorMessage';
 import { RootState } from '../_store/store';
 import useMediaFetch from '../_hooks/media/useMediaFetch';
 import useMediaHandlers from '../_hooks/media/useMediaHandlers';
-
-// export const metadata: Metadata = {
-//   description: 'Popular movies and TV shows',
-// };
 
 import {
   setMedia,

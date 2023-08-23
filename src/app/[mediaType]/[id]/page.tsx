@@ -2,7 +2,6 @@
 
 import { FC, SyntheticEvent, useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-// import { Metadata } from 'next';
 import Image from 'next/image';
 import { IoListSharp } from 'react-icons/io5';
 import { AiFillHeart, AiFillStar } from 'react-icons/ai';
@@ -17,10 +16,6 @@ import ErrorMessage from '../../_components/UI/error-message/ErrorMessage';
 import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
 import { Genre } from '../../_store/media/mediaApi';
 import Main from '../../_layouts/main/Main';
-
-// export const metadata: Metadata = {
-//   description: 'Details about a movie/TV show',
-// };
 
 // const { MOVIEDB_API_KEY = '' } = process.env;
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
