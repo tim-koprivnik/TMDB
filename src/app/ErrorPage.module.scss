@@ -26,8 +26,11 @@
     font-weight: 900;
     display: flex;
     align-items: center;
-    gap: 0.25rem;
     color: $color-white;
+
+    &:last-of-type {
+      gap: 0.25rem;
+    }
 
     &:hover {
       color: $color-primary-light;
@@ -36,5 +39,12 @@
 
   .error-actions {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .divider {
+    font-size: 5rem;
+    color: $color-primary-light;
   }
 }
