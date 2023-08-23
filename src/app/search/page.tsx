@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchQuery } from '../../_store/search/searchSlice';
