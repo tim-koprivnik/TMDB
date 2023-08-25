@@ -1,4 +1,16 @@
+# TMDB Movie App
+
 This is an onboarding app for [Agiledrop](https://www.agiledrop.com/), created in [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Technologies used
+
+- [React](https://react.dev/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SCSS](https://sass-lang.com/)
+- [React Redux](https://react-redux.js.org/)
+- [Swiper](https://swiperjs.com/react)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 ## Getting Started
 
