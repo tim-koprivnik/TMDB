@@ -5,9 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { setSearchQuery } from '../../_store/search/searchSlice';
 import { RootState } from '../../_store/store';
-import useFetchMultiple from '../../_hooks/useFetchMultiple';
+import useFetchMultiple from '../useFetchMultiple';
 
-// const { MOVIEDB_API_KEY = '' } = process.env;
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 export interface CategoryCounts {
@@ -58,7 +57,6 @@ export const useSearchLogic = () => {
     category =>
       `https://api.themoviedb.org/3/search/${category}?api_key=${MOVIEDB_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
   );
-
   const { data, loading, error } = useFetchMultiple(urls, [searchQuery]);
 
   const handleCategoryClick = (category: string) => {
