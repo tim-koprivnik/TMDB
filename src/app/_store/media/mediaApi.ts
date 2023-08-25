@@ -3,7 +3,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const MOVIEDB_BASE_URL = 'https://api.themoviedb.org/3';
 
-// const { MOVIEDB_API_KEY = '' } = process.env;
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 export interface Media {
