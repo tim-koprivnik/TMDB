@@ -17,7 +17,6 @@ import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
 import { Genre } from '../../_store/media/mediaApi';
 import Main from '../../_layouts/main/Main';
 
-// const { MOVIEDB_API_KEY = '' } = process.env;
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 interface Params extends Record<string, string> {

@@ -13,7 +13,6 @@ import CompanyResult from '../result-types/CompanyResult';
 import CollectionResult from '../result-types/CollectionResult';
 import KeywordResult from '../result-types/KeywordResult';
 
-// const { MOVIEDB_API_KEY = '' } = process.env;
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 interface SearchResult {

@@ -29,7 +29,6 @@ interface TrendingData {
   results: TrendingResult[];
 }
 
-// const { MOVIEDB_API_KEY = '' } = process.env;
 const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 interface TrendingProps {
