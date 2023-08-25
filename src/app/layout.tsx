@@ -15,7 +15,7 @@ const sourceSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'TMDBNext',
+  title: 'TMDB Movie app',
   description: 'Next.js onboarding',
 };
 
