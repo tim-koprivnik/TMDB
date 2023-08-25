@@ -8,23 +8,18 @@ interface FetchData<T> {
   error: Error | null;
 }
 
-const useFetch = <T>(url: string, delay = 0): FetchData<T> => {
+const useFetch = <T>(url: string): FetchData<T> => {
   const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
   const abortController = useRef(new AbortController());
-  const timer = useRef<number | null>(null);
 
   useEffect(() => {
-    setLoading(true);
-    setError(null);
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
 
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
-
-    timer.current = window.setTimeout(async () => {
       try {
         abortController.current.abort();
         abortController.current = new AbortController();
@@ -42,22 +37,21 @@ const useFetch = <T>(url: string, delay = 0): FetchData<T> => {
       } catch (err: unknown) {
         if (err instanceof Error) {
           if (err.name === 'AbortError') {
-            console.log('Fetch aborted');
+            console.error('Fetch aborted');
           } else {
             setError(err);
           }
         }
         setLoading(false);
       }
-    }, delay) as unknown as number;
+    };
+
+    fetchData();
 
     return () => {
-      if (timer.current !== null) {
-        clearTimeout(timer.current);
-      }
       abortController.current.abort();
     };
-  }, [url, delay]);
+  }, [url]);
 
   return { data, loading, error };
 };
