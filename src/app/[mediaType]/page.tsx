@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { usePathname } from 'next/navigation';
 import styles from './PopularMediaPage.module.scss';
@@ -26,7 +26,7 @@ import {
   setShouldFetchMedia,
 } from '../_store/media/mediaSlice';
 
-const PopularMediaPage: FC = () => {
+export default function PopularMediaPage() {
   const {
     mediaType,
     media,
@@ -215,6 +215,4 @@ const PopularMediaPage: FC = () => {
       </Main>
     </PageWrapper>
   );
-};
-
-export default PopularMediaPage;
+}

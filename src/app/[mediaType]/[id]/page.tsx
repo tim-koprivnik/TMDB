@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, SyntheticEvent, useState, useEffect } from 'react';
+import { SyntheticEvent, useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
 import { IoListSharp } from 'react-icons/io5';
@@ -46,7 +46,7 @@ interface MediaDetailsData {
   episode_run_time?: number[];
 }
 
-const MediaDetailsPage: FC = () => {
+export default function MediaDetailsPage() {
   const { mediaType: rawMediaType, id: rawId } = useParams();
   const mediaType = rawMediaType as string;
   const id = rawId as string;
@@ -170,6 +170,4 @@ const MediaDetailsPage: FC = () => {
       </Main>
     </PageWrapper>
   );
-};
-
-export default MediaDetailsPage;
+}

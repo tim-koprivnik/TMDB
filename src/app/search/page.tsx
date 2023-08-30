@@ -1,6 +1,5 @@
 'use client';
 
-import { FC } from 'react';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
@@ -20,7 +19,7 @@ import SearchSidebar from '../_components/search/sidebar/SearchSidebar';
 import SearchResults from '../_components/search/results/SearchResults';
 import Search from '../_components/search/Search';
 
-const SearchPage: FC = () => {
+export default function SearchPage() {
   const {
     searchQuery,
     handleCategoryClick,
@@ -57,6 +56,4 @@ const SearchPage: FC = () => {
       </PageWrapper>
     </>
   );
-};
-
-export default SearchPage;
+}
