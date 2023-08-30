@@ -22,7 +22,7 @@ export default function NotFound() {
         <p>{message}</p>
         <button type="button" onClick={handleNavigateBack}>
           <IoArrowBackOutline size={18} />
-          Go Back
+          Go back
         </button>
       </Main>
     </PageWrapper>

@@ -28,7 +28,7 @@ export default function Error({
           <span className={styles.divider}>/</span>
           <button type="button" onClick={handleNavigateBack}>
             <IoArrowBackOutline size={18} />
-            Go Back
+            Go back
           </button>
         </div>
       </Main>
