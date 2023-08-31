@@ -1,8 +1,8 @@
 import './globals.css';
+import './index.scss';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
-import './index.scss';
 import ReduxProvider from './_store/provider';
 import Header from './_layouts/header/Header';
 import Footer from './_layouts/footer/Footer';
