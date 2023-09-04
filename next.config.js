@@ -6,7 +6,6 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    // domains: ['image.tmdb.org'],
     remotePatterns: [
       {
         protocol: 'https',

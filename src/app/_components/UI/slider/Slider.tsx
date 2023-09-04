@@ -97,6 +97,7 @@ const Slider: FC<SliderProps> = ({
                     e.currentTarget.src =
                       '/assets/images/placeholder-movie-image.jpeg';
                   }}
+                  priority
                 />
               </Link>
               <h4 className={styles['slider-heading']}>{formattedTitle}</h4>

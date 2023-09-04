@@ -44,6 +44,7 @@ const CollectionResult: FC<CollectionResultProps> = ({
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
             setImgSrc('/assets/images/placeholder-movie-image.jpeg');
           }}
+          priority
         />
       </div>
       <div className={styles.content}>

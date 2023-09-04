@@ -112,6 +112,7 @@ export default function MediaDetailsPage() {
                 onError={(e: SyntheticEvent<HTMLImageElement>) => {
                   setImgSrc('/assets/images/placeholder-movie-image.jpeg');
                 }}
+                priority
               />
             </div>
             <div>

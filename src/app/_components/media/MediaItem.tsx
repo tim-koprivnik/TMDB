@@ -37,6 +37,7 @@ const MediaItem: FC<MediaItemProps> = ({
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
             setImgSrc('/assets/images/placeholder-media-details-image.png');
           }}
+          priority
         />
       </Link>
       <div className={styles.content}>

@@ -42,6 +42,7 @@ const MovieTvResult: FC<MovieTvResultProps> = ({ result, category = '' }) => {
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
             setImgSrc('/assets/images/placeholder-movie-image.jpeg');
           }}
+          priority
         />
       </div>
       <div className={styles.content}>
