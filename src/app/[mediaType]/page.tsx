@@ -155,6 +155,10 @@ export default function PopularMediaPage() {
       releaseDateProperty = 'release_date';
   }
 
+  if (!pathname.startsWith('/tv') && !pathname.startsWith('/movie')) {
+    return <ErrorMessage fullScreen>Not found.</ErrorMessage>;
+  }
+
   return (
     <PageWrapper className={styles['popular-page']}>
       <Sidebar>
