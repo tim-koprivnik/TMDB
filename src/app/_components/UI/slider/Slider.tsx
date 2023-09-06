@@ -3,14 +3,19 @@
 import { FC, Dispatch, SetStateAction, SyntheticEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import SwiperCore, { Navigation, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import './swiper.css';
 import styles from './Slider.module.scss';
 import { formatTitle, formatDate, getMediaType } from '../../../_utils/helpers';
-import Loader from '../loader/Loader';
-import ErrorMessage from '../error-message/ErrorMessage';
+const Loader = dynamic(() => import('../loader/Loader'), {
+  ssr: false,
+});
+const ErrorMessage = dynamic(() => import('../error-message/ErrorMessage'), {
+  ssr: false,
+});
 
 interface Error {
   message: string;

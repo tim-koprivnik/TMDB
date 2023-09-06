@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import styles from './PopularMediaPage.module.scss';
 import PageWrapper from '../_components/UI/page-wrapper/PageWrapper';
 import Sidebar from '../_layouts/sidebar/Sidebar';
@@ -10,8 +11,15 @@ import Main from '../_layouts/main/Main';
 import Sort from '../_components/UI/sort/Sort';
 import Filters from '../_components/UI/filters/Filters';
 import MediaItem from '../_components/media/MediaItem';
-import Loader from '../_components/UI/loader/Loader';
-import ErrorMessage from '../_components/UI/error-message/ErrorMessage';
+const Loader = dynamic(() => import('../_components/UI/loader/Loader'), {
+  ssr: false,
+});
+const ErrorMessage = dynamic(
+  () => import('../_components/UI/error-message/ErrorMessage'),
+  {
+    ssr: false,
+  }
+);
 import { RootState } from '../_store/store';
 import useMediaFetch from '../_hooks/media/useMediaFetch';
 import useMediaHandlers from '../_hooks/media/useMediaHandlers';
