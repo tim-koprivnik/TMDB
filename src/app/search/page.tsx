@@ -1,17 +1,8 @@
 'use client';
 
-import { BsInfoCircleFill } from 'react-icons/bs';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-import { useSelector, useDispatch } from 'react-redux';
-import { setSearchQuery } from '../_store/search/searchSlice';
-import { RootState } from '../_store/store';
-import {
-  categories,
-  CategoryCounts,
-  CategoryData,
-} from '../_hooks/search/useSearchLogic';
 import { useSearchLogic } from '../_hooks/search/useSearchLogic';
 import styles from './SearchPage.module.scss';
+import { BsInfoCircleFill } from 'react-icons/bs';
 import PageWrapper from '../_components/UI/page-wrapper/PageWrapper';
 import Main from '../_layouts/main/Main';
 import Sidebar from '../_layouts/sidebar/Sidebar';
@@ -20,13 +11,8 @@ import SearchResults from '../_components/search/results/SearchResults';
 import Search from '../_components/search/Search';
 
 export default function SearchPage() {
-  const {
-    searchQuery,
-    handleCategoryClick,
-    categoryCounts,
-    currentPage,
-    setCurrentPage,
-  } = useSearchLogic();
+  const { handleCategoryClick, categoryCounts, currentPage, setCurrentPage } =
+    useSearchLogic();
 
   return (
     <>
