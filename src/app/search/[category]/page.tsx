@@ -1,6 +1,5 @@
 'use client';
 
-import { FC } from 'react';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchQuery } from '../../_store/search/searchSlice';
@@ -25,7 +24,7 @@ import SearchSidebar from '../../_components/search/sidebar/SearchSidebar';
 import SearchResults from '../../_components/search/results/SearchResults';
 import Search from '../../_components/search/Search';
 
-const SearchPageWithCategory: FC = () => {
+export default function SearchPageWithCategory() {
   const {
     searchQuery,
     handleCategoryClick,
@@ -67,6 +66,4 @@ const SearchPageWithCategory: FC = () => {
       </PageWrapper>
     </>
   );
-};
-
-export default SearchPageWithCategory;
+}
