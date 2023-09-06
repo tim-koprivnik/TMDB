@@ -22,7 +22,7 @@ export default function Error({
   return (
     <PageWrapper>
       <Main className={styles['error-page']}>
-        <h2>Something went wrong!</h2>
+        <p>Something went wrong.</p>
         <div className={styles['error-actions']}>
           <button onClick={() => reset()}>Try again</button>
           <span className={styles.divider}>/</span>

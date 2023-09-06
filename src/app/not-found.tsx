@@ -18,7 +18,6 @@ export default function NotFound() {
   return (
     <PageWrapper>
       <Main className={styles['error-page']}>
-        <h2>Not found!</h2>
         <p>{message}</p>
         <button type="button" onClick={handleNavigateBack}>
           <IoArrowBackOutline size={18} />
