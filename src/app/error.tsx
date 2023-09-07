@@ -24,7 +24,9 @@ export default function Error({
       <Main className={styles['error-page']}>
         <p>Something went wrong.</p>
         <div className={styles['error-actions']}>
-          <button onClick={() => reset()}>Try again</button>
+          <button type="button" onClick={() => reset()}>
+            Try again
+          </button>
           <span className={styles.divider}>/</span>
           <button type="button" onClick={handleNavigateBack}>
             <IoArrowBackOutline size={18} />
