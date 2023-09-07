@@ -14,6 +14,7 @@ import useFetch from '../../../_hooks/useFetch';
 import { removeDuplicates } from '../../../_utils/helpers';
 import { setSearchQuery } from '../../../_store/search/searchSlice';
 import { RootState } from '../../../_store/store';
+import { MOVIEDB_API_KEY } from '../../../_store/media/mediaApi';
 import { HiTrendingUp } from 'react-icons/hi';
 import { FaSearch } from 'react-icons/fa';
 import styles from './Trending.module.scss';
@@ -28,8 +29,6 @@ interface TrendingResult {
 interface TrendingData {
   results: TrendingResult[];
 }
-
-const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 interface TrendingProps {
   onItemClick: (query: string) => void;
