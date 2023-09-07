@@ -39,7 +39,6 @@ const SingleSlider: FC<SingleSliderProps> = ({
   }, [activeTab, baseURL, apiKey]);
 
   const { data, loading, error } = useFetch<SliderData>(url);
-
   const results = data?.results;
 
   return (
