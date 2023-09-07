@@ -5,9 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { setSearchQuery } from '../../_store/search/searchSlice';
 import { RootState } from '../../_store/store';
+import { MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
 import useFetchMultiple from '../useFetchMultiple';
-
-const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 export interface CategoryCounts {
   movie: number;

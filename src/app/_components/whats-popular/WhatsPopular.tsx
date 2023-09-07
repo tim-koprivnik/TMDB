@@ -2,9 +2,7 @@
 
 import { FC } from 'react';
 import SingleSlider from '../UI/slider/SingleSlider';
-import { MOVIEDB_BASE_URL } from '../../_store/media/mediaApi';
-
-const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
+import { MOVIEDB_BASE_URL, MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
 
 const WhatsPopular: FC = () => (
   <>

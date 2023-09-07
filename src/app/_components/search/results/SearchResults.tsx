@@ -2,18 +2,17 @@
 
 import { useState, useEffect, FC } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './SearchResults.module.scss';
-import useFetch from '../../../_hooks/useFetch';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../_store/store';
+import { MOVIEDB_API_KEY } from '../../../_store/media/mediaApi';
+import useFetch from '../../../_hooks/useFetch';
+import styles from './SearchResults.module.scss';
 import Pagination from '../pagination/Pagination';
 import MovieTvResult from '../result-types/MovieTvResult';
 import PersonResult from '../result-types/PersonResult';
 import CompanyResult from '../result-types/CompanyResult';
 import CollectionResult from '../result-types/CollectionResult';
 import KeywordResult from '../result-types/KeywordResult';
-
-const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 interface SearchResult {
   id: number;

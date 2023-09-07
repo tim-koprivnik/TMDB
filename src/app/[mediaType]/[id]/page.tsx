@@ -4,6 +4,7 @@ import { SyntheticEvent, useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
 import { IoListSharp } from 'react-icons/io5';
 import { AiFillHeart, AiFillStar } from 'react-icons/ai';
 import { BsFillBookmarkFill } from 'react-icons/bs';
@@ -24,8 +25,6 @@ const ErrorMessage = dynamic(
 import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
 import { Genre } from '../../_store/media/mediaApi';
 import Main from '../../_layouts/main/Main';
-
-const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
 
 interface Params extends Record<string, string> {
   id: string;
