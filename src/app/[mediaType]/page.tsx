@@ -186,7 +186,6 @@ export default function PopularMediaPage() {
         />
         <button
           type="button"
-          aria-label="Search"
           onClick={handleSearchClick}
           className={styles['search-btn']}
           disabled={isInitialLoad}
