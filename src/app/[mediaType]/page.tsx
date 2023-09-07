@@ -214,7 +214,6 @@ export default function PopularMediaPage() {
           {page < totalPages && (
             <button
               type="button"
-              aria-label="Load more"
               ref={loadMoreRef}
               onClick={handleLoadMoreClick}
               style={{ opacity: hasClickedLoadMore ? 0 : 1, height: '1px' }}
