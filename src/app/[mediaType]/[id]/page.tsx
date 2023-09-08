@@ -26,11 +26,6 @@ import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
 import { Genre } from '../../_store/media/mediaApi';
 import Main from '../../_layouts/main/Main';
 
-interface Params extends Record<string, string> {
-  id: string;
-  mediaType: string;
-}
-
 interface Part {
   title: string;
   name: string;
