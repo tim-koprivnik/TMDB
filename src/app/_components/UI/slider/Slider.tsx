@@ -105,7 +105,7 @@ const Slider: FC<SliderProps> = ({
                   priority
                 />
               </Link>
-              <h4 className={styles['slider-heading']}>{formattedTitle}</h4>
+              <h2 className={styles['slider-heading']}>{formattedTitle}</h2>
               {item.release_date ? (
                 <p className={styles['slider-text']}>
                   {formatDate(item.release_date)}
