@@ -117,7 +117,7 @@ const Search: FC<SearchProps> = ({
   return (
     <div className={styles.search}>
       {showSearchIcon ? (
-        <button type="button" onClick={handleShowModal}>
+        <button type="button" onClick={handleShowModal} aria-label="Search">
           {!isOpen && (
             <IconContext.Provider value={searchIconColor}>
               <FaSearch size={20} />
