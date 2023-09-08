@@ -37,7 +37,7 @@ const PersonResult: FC<PersonResultProps> = ({ result }) => {
       </div>
       <div className={styles.content}>
         <h3>{result.name}</h3>
-        <div className={styles.knownFor}>
+        <div className={styles['known-for']}>
           <p>{result.known_for_department} &bull;</p>
           <p>
             {result.known_for &&
