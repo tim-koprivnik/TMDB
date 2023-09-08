@@ -52,7 +52,6 @@ const Filters: FC<FiltersProps> = ({
             <li key={genre.id}>
               <button
                 type="button"
-                aria-label={genre.name}
                 onClick={() => handleGenreClick?.(genre.id)}
                 className={activeFilter.includes(genre.id) ? styles.active : ''}
               >
