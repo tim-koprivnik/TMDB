@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import Link from 'next/link';
 import styles from './SubMenuList.module.scss';
 import { Submenu } from '../../../_data/menu-data';
 
@@ -19,7 +20,7 @@ const SubMenuList: FC<SubMenuListProps> = ({ items, dropdown, onNavigate }) => {
     <ul className={`${styles.dropdown} ${dropdown ? styles.show : ''}`}>
       {items.map(item => (
         <li key={item.label} className={styles['menu-item']}>
-          <a
+          <Link
             href={item.url}
             onClick={e => {
               e.preventDefault();
@@ -27,7 +28,7 @@ const SubMenuList: FC<SubMenuListProps> = ({ items, dropdown, onNavigate }) => {
             }}
           >
             {item.label}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
