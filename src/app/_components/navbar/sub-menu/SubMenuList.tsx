@@ -19,9 +19,15 @@ const SubMenuList: FC<SubMenuListProps> = ({ items, dropdown, onNavigate }) => {
     <ul className={`${styles.dropdown} ${dropdown ? styles.show : ''}`}>
       {items.map(item => (
         <li key={item.label} className={styles['menu-item']}>
-          <button type="button" onClick={() => handleNavigate(item.url)}>
+          <a
+            href={item.url}
+            onClick={e => {
+              e.preventDefault();
+              handleNavigate(item.url);
+            }}
+          >
             {item.label}
-          </button>
+          </a>
         </li>
       ))}
     </ul>

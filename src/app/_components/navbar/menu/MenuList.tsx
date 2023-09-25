@@ -39,13 +39,17 @@ const MenuList: FC<MenuListProps> = ({ items }) => {
     >
       {items.submenu ? (
         <>
-          <button
-            type="button"
+          <a
+            role="button"
+            href="#"
             aria-haspopup="menu"
             aria-expanded={isDropdownOpen}
+            onClick={e => {
+              e.preventDefault();
+            }}
           >
-            {items.label}{' '}
-          </button>
+            {items.label}
+          </a>
           <SubMenuList
             items={items.submenu}
             dropdown={isDropdownOpen}
@@ -53,9 +57,15 @@ const MenuList: FC<MenuListProps> = ({ items }) => {
           />
         </>
       ) : (
-        <button type="button" onClick={() => handleNavigate(items.url)}>
+        <a
+          href={items.url}
+          onClick={e => {
+            e.preventDefault();
+            handleNavigate(items.url);
+          }}
+        >
           {items.label}
-        </button>
+        </a>
       )}
     </li>
   );
