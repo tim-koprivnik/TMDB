@@ -44,9 +44,6 @@ const MenuList: FC<MenuListProps> = ({ items }) => {
             type="button"
             aria-haspopup="menu"
             aria-expanded={isDropdownOpen}
-            onClick={e => {
-              e.preventDefault();
-            }}
           >
             {items.label}
           </button>
