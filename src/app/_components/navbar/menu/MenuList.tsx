@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FC } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from './MenuList.module.scss';
 import SubMenuList from '../sub-menu/SubMenuList';
@@ -39,9 +40,8 @@ const MenuList: FC<MenuListProps> = ({ items }) => {
     >
       {items.submenu ? (
         <>
-          <a
-            role="button"
-            href="#"
+          <button
+            type="button"
             aria-haspopup="menu"
             aria-expanded={isDropdownOpen}
             onClick={e => {
@@ -49,7 +49,7 @@ const MenuList: FC<MenuListProps> = ({ items }) => {
             }}
           >
             {items.label}
-          </a>
+          </button>
           <SubMenuList
             items={items.submenu}
             dropdown={isDropdownOpen}
@@ -57,7 +57,7 @@ const MenuList: FC<MenuListProps> = ({ items }) => {
           />
         </>
       ) : (
-        <a
+        <Link
           href={items.url}
           onClick={e => {
             e.preventDefault();
@@ -65,7 +65,7 @@ const MenuList: FC<MenuListProps> = ({ items }) => {
           }}
         >
           {items.label}
-        </a>
+        </Link>
       )}
     </li>
   );
