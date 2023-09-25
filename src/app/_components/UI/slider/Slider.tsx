@@ -10,12 +10,8 @@ import 'swiper/swiper-bundle.css';
 import './swiper.css';
 import styles from './Slider.module.scss';
 import { formatTitle, formatDate, getMediaType } from '../../../_utils/helpers';
-const Loader = dynamic(() => import('../loader/Loader'), {
-  ssr: false,
-});
-const ErrorMessage = dynamic(() => import('../error-message/ErrorMessage'), {
-  ssr: false,
-});
+import Loader from '../loader/Loader';
+import ErrorMessage from '../error-message/ErrorMessage';
 
 interface Error {
   message: string;
