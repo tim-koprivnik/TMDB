@@ -1,11 +1,11 @@
 'use client';
 
+import styles from './MediaItem.module.scss';
 import { FC, SyntheticEvent, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './MediaItem.module.scss';
-import { formatDate } from '../../_utils/helpers';
 import { Media } from '../../_store/media/mediaApi';
+import { formatDate } from '../../_utils/helpers';
 import UserScore from '../UI/user-score/UserScore';
 import Card from '../UI/card/Card';
 

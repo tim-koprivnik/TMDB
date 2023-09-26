@@ -1,8 +1,8 @@
 'use client';
 
+import styles from './SubMenuList.module.scss';
 import { FC } from 'react';
 import Link from 'next/link';
-import styles from './SubMenuList.module.scss';
 import { Submenu } from '../../../_data/menu-data';
 
 interface SubMenuListProps {

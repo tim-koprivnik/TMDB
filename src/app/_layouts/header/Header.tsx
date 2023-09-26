@@ -1,5 +1,7 @@
-import { FC } from 'react';
+'use client';
+
 import styles from './Header.module.scss';
+import { FC } from 'react';
 import Navbar from '../../_components/navbar/Navbar';
 import LanguageSwitcher from '../../_components/language-switcher/LanguageSwitcher';
 import Plus from '../../_components/plus/Plus';

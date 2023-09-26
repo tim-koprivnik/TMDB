@@ -1,9 +1,9 @@
 'use client';
 
+import styles from './Logo.module.scss';
 import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './Logo.module.scss';
 import logoDesktop from 'public/assets/images/tmdb-logo.svg';
 import logoMobile from 'public/assets/images/tmdb-logo-mobile.jpg';
 

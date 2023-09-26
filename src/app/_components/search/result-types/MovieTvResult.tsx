@@ -1,9 +1,9 @@
 'use client';
 
+import styles from '../results/SearchResults.module.scss';
 import { FC, SyntheticEvent, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../results/SearchResults.module.scss';
 import { formatDate, generateMediaURL } from '../../../_utils/helpers';
 
 interface MovieTvResult {

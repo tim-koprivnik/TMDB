@@ -1,7 +1,7 @@
 'use client';
 
-import { FC, ReactNode } from 'react';
 import styles from './Tooltip.module.scss';
+import { FC, ReactNode } from 'react';
 
 interface TooltipProps {
   content: string;

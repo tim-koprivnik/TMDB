@@ -1,5 +1,7 @@
-import { FC, ReactNode } from 'react';
+'use client';
+
 import styles from './Sidebar.module.scss';
+import { FC, ReactNode } from 'react';
 
 interface SidebarProps {
   children: ReactNode;

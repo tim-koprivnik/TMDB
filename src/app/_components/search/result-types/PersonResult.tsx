@@ -1,8 +1,8 @@
 'use client';
 
+import styles from '../results/SearchResults.module.scss';
 import { FC, SyntheticEvent, useState } from 'react';
 import Image from 'next/image';
-import styles from '../results/SearchResults.module.scss';
 
 interface PersonResult {
   profile_path?: string;

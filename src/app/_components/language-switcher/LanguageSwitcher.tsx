@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, FC } from 'react';
 import styles from './LanguageSwitcher.module.scss';
-import LanguageSwitcherModal from './modal/LanguageSwitcherModal';
+import { useState, FC } from 'react';
 import languages, { Language } from '../../_data/languages-data';
+import LanguageSwitcherModal from './modal/LanguageSwitcherModal';
 
 const LanguageSwitcher: FC = () => {
   const [language, setLanguage] = useState<Language>(languages[0]);

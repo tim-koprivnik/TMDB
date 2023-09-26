@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './Select.module.scss';
 import {
   useState,
   useRef,
@@ -8,9 +9,8 @@ import {
   ChangeEvent,
   KeyboardEvent,
 } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import styles from './Select.module.scss';
 import useOutsideClick from '../../../_hooks/useOutsideClick';
+import { FaSearch } from 'react-icons/fa';
 
 interface SelectOption {
   code: string;

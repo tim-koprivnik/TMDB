@@ -1,10 +1,10 @@
 'use client';
 
+import styles from './ErrorMessage.module.scss';
 import { FC, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import ReactDOM from 'react-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
-import styles from './ErrorMessage.module.scss';
 import PageWrapper from '../page-wrapper/PageWrapper';
 import Main from '../../../_layouts/main/Main';
 

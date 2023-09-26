@@ -1,8 +1,8 @@
 'use client';
 
+import styles from './Join.module.scss';
 import { MouseEvent, FC } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './Join.module.scss';
 
 const Join: FC = () => {
   const router = useRouter();

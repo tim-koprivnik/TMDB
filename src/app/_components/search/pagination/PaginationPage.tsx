@@ -1,7 +1,7 @@
 'use client';
 
-import { FC } from 'react';
 import styles from './Pagination.module.scss';
+import { FC } from 'react';
 
 interface PaginationPageProps {
   page: number | string;

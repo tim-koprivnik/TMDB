@@ -1,7 +1,7 @@
 'use client';
 
-import { useRef, useEffect, FC } from 'react';
 import styles from './UserScore.module.scss';
+import { useRef, useEffect, FC } from 'react';
 
 interface UserScoreProps {
   score?: number;

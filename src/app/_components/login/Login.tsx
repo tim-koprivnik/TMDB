@@ -1,7 +1,7 @@
 'use client';
 
-import { FC, MouseEvent } from 'react';
 import styles from './Login.module.scss';
+import { FC, MouseEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Login: FC = () => {

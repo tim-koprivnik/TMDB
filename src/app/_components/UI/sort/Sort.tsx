@@ -1,11 +1,11 @@
 'use client';
 
+import styles from './Sort.module.scss';
 import { FC } from 'react';
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowDown,
 } from 'react-icons/md';
-import styles from './Sort.module.scss';
 import Select from '../select/Select';
 import Card from '../card/Card';
 

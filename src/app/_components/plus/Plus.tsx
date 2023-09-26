@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, FC } from 'react';
 import styles from './Plus.module.scss';
+import { useState, FC } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import PlusModal from './modal/PlusModal';
 

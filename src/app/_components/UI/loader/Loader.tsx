@@ -1,8 +1,8 @@
 'use client';
 
+import styles from './Loader.module.scss';
 import { FC } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './Loader.module.scss';
 
 interface LoaderProps {
   className?: string;

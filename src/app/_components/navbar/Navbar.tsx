@@ -1,7 +1,7 @@
 'use client';
 
-import { FC } from 'react';
 import styles from './Navbar.module.scss';
+import { FC } from 'react';
 import menuData, { Menu } from '../../_data/menu-data';
 import MenuList from './menu/MenuList';
 

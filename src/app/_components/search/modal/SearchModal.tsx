@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './SearchModal.module.scss';
 import {
   useEffect,
   FC,
@@ -10,7 +11,6 @@ import {
   FormEvent,
 } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import styles from './SearchModal.module.scss';
 import Modal from '../../UI/modal/Modal';
 import SearchForm from '../form/SearchForm';
 import Trending from '../trending/Trending';

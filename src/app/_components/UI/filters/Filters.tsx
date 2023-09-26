@@ -1,13 +1,13 @@
 'use client';
 
+import styles from './Filters.module.scss';
 import { FC } from 'react';
+import { Genre } from '../../../_store/media/mediaApi';
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowDown,
 } from 'react-icons/md';
-import styles from './Filters.module.scss';
 import Card from '../card/Card';
-import { Genre } from '../../../_store/media/mediaApi';
 
 interface FiltersProps {
   isFiltersVisible?: boolean;

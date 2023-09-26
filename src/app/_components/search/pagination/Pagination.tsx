@@ -1,9 +1,9 @@
 'use client';
 
-import { FC } from 'react';
-import { GrFormPreviousLink, GrFormNextLink } from 'react-icons/gr';
 import styles from './Pagination.module.scss';
+import { FC } from 'react';
 import { getPages } from '../../../_utils/helpers';
+import { GrFormPreviousLink, GrFormNextLink } from 'react-icons/gr';
 import PaginationPage from './PaginationPage';
 
 interface PaginationProps {

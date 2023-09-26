@@ -1,7 +1,7 @@
 'use client';
 
-import { FC, ReactNode } from 'react';
 import styles from './PageWrapper.module.scss';
+import { FC, ReactNode } from 'react';
 
 interface PageWrapperProps {
   children: ReactNode;

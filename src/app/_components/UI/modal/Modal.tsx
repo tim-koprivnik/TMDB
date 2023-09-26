@@ -1,7 +1,7 @@
 'use client';
 
-import { forwardRef, useRef, FC, ReactNode } from 'react';
 import styles from './Modal.module.scss';
+import { forwardRef, useRef, FC, ReactNode } from 'react';
 import useOutsideClick from '../../../_hooks/useOutsideClick';
 
 interface ModalProps {

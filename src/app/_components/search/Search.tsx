@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './Search.module.scss';
 import {
   useState,
   useMemo,
@@ -10,15 +11,14 @@ import {
   useEffect,
 } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { IconContext } from 'react-icons';
-import { FaSearch } from 'react-icons/fa';
-import { IoClose } from 'react-icons/io5';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchQuery } from '../../_store/search/searchSlice';
 import { RootState } from '../../_store/store';
 import { debounce } from '../../_utils/helpers';
+import { IconContext } from 'react-icons';
+import { FaSearch } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 import SearchModal from './modal/SearchModal';
-import styles from './Search.module.scss';
 
 interface SearchProps {
   showSearchIcon?: boolean;

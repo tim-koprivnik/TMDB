@@ -1,8 +1,8 @@
 'use client';
 
+import styles from './SearchPage.module.scss';
 import { useParams } from 'next/navigation';
 import { useSearchLogic } from '../../_hooks/search/useSearchLogic';
-import styles from './SearchPage.module.scss';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
 import Main from '../../_layouts/main/Main';

@@ -1,5 +1,7 @@
-import { ReactNode, FC } from 'react';
+'use client';
+
 import styles from './Main.module.scss';
+import { ReactNode, FC } from 'react';
 
 interface MainProps {
   children: ReactNode;

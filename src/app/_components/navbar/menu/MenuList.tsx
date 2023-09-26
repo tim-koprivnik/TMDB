@@ -1,11 +1,11 @@
 'use client';
 
+import styles from './MenuList.module.scss';
 import { useState, FC } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import styles from './MenuList.module.scss';
-import SubMenuList from '../sub-menu/SubMenuList';
 import { Menu } from '../../../_data/menu-data';
+import SubMenuList from '../sub-menu/SubMenuList';
 
 interface MenuListProps {
   items: Menu;

@@ -1,7 +1,7 @@
 'use client';
 
-import { FC } from 'react';
 import styles from '../results/SearchResults.module.scss';
+import { FC } from 'react';
 
 interface CompanyResult {
   name?: string;

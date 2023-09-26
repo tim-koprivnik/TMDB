@@ -1,12 +1,12 @@
 'use client';
 
+import styles from './SearchResults.module.scss';
 import { useState, useEffect, FC } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../_store/store';
 import { MOVIEDB_API_KEY } from '../../../_store/media/mediaApi';
 import useFetch from '../../../_hooks/useFetch';
-import styles from './SearchResults.module.scss';
 import Pagination from '../pagination/Pagination';
 import MovieTvResult from '../result-types/MovieTvResult';
 import PersonResult from '../result-types/PersonResult';

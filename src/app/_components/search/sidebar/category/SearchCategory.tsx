@@ -1,7 +1,7 @@
 'use client';
 
-import { FC } from 'react';
 import styles from './SearchCategory.module.scss';
+import { FC } from 'react';
 import { formatCount } from '../../../../_utils/helpers';
 
 interface SearchCategoryProps {

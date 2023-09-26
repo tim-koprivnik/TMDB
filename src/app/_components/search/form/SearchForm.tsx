@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './SearchForm.module.scss';
 import {
   RefObject,
   FC,
@@ -8,11 +9,10 @@ import {
   ChangeEvent,
   FormEvent,
 } from 'react';
-import styles from './SearchForm.module.scss';
 import { RootState } from '../../../_store/store';
+import { useSelector } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
-import { useSelector } from 'react-redux';
 
 interface SearchFormProps {
   onInputChange: (e: ChangeEvent<HTMLInputElement>) => void;

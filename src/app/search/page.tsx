@@ -1,11 +1,11 @@
 'use client';
 
-import { useSearchLogic } from '../_hooks/search/useSearchLogic';
 import styles from './SearchPage.module.scss';
+import { useSearchLogic } from '../_hooks/search/useSearchLogic';
 import { BsInfoCircleFill } from 'react-icons/bs';
-import PageWrapper from '../_components/UI/page-wrapper/PageWrapper';
 import Main from '../_layouts/main/Main';
 import Sidebar from '../_layouts/sidebar/Sidebar';
+import PageWrapper from '../_components/UI/page-wrapper/PageWrapper';
 import SearchSidebar from '../_components/search/sidebar/SearchSidebar';
 import SearchResults from '../_components/search/results/SearchResults';
 import Search from '../_components/search/Search';

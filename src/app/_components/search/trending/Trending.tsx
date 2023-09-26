@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './Trending.module.scss';
 import {
   useState,
   useEffect,
@@ -10,14 +11,13 @@ import {
 } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
-import useFetch from '../../../_hooks/useFetch';
-import { removeDuplicates } from '../../../_utils/helpers';
 import { setSearchQuery } from '../../../_store/search/searchSlice';
 import { RootState } from '../../../_store/store';
 import { MOVIEDB_API_KEY } from '../../../_store/media/mediaApi';
+import useFetch from '../../../_hooks/useFetch';
+import { removeDuplicates } from '../../../_utils/helpers';
 import { HiTrendingUp } from 'react-icons/hi';
 import { FaSearch } from 'react-icons/fa';
-import styles from './Trending.module.scss';
 
 interface TrendingResult {
   id: number;

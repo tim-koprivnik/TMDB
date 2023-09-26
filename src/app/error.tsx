@@ -1,10 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import PageWrapper from './_components/UI/page-wrapper/PageWrapper';
-import Main from './_layouts/main/Main';
-import { IoArrowBackOutline } from 'react-icons/io5';
 import styles from './ErrorPage.module.scss';
+import { useRouter } from 'next/navigation';
+import Main from './_layouts/main/Main';
+import PageWrapper from './_components/UI/page-wrapper/PageWrapper';
+import { IoArrowBackOutline } from 'react-icons/io5';
 
 export default function Error({
   error,
