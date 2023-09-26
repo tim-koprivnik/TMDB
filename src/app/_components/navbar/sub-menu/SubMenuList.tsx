@@ -12,10 +12,6 @@ interface SubMenuListProps {
 }
 
 const SubMenuList: FC<SubMenuListProps> = ({ items, dropdown, onNavigate }) => {
-  const handleNavigate = (url: string) => {
-    onNavigate(url);
-  };
-
   return (
     <ul className={`${styles.dropdown} ${dropdown ? styles.show : ''}`}>
       {items.map(item => (
@@ -24,7 +20,7 @@ const SubMenuList: FC<SubMenuListProps> = ({ items, dropdown, onNavigate }) => {
             href={item.url}
             onClick={e => {
               e.preventDefault();
-              handleNavigate(item.url);
+              onNavigate(item.url);
             }}
           >
             {item.label}
