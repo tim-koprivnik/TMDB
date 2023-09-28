@@ -65,8 +65,8 @@ const Trending: FC<TrendingProps> = ({
   }
 
   const url = searchQuery
-    ? `https://api.themoviedb.org/3/search/multi?api_key=${MOVIEDB_API_KEY}&query=${searchQuery}`
-    : `https://api.themoviedb.org/3/trending/all/day?api_key=${MOVIEDB_API_KEY}`;
+    ? `/api/trending-search?query=${searchQuery}`
+    : `/api/trending-search`;
 
   const { data, loading, error } = useFetch<TrendingData>(url);
 
@@ -89,33 +89,35 @@ const Trending: FC<TrendingProps> = ({
     }
   }, [searchQuery, data, loading, error]);
 
-  return showTrending ? (
-    <div className={styles.trending} ref={trendingRef}>
-      {!searchQuery && (
-        <div className={styles['trending-heading']}>
-          <h2>
-            <HiTrendingUp size={20} /> Trending
-          </h2>
-        </div>
-      )}
-      <ul className={searchQuery ? `${styles['has-top-border']}` : ''}>
-        {trendingItems.map((item: TrendingResult) => (
-          <li key={item.id}>
-            <button
-              type="button"
-              aria-label={item.title || item.name}
-              onClick={() => handleItemClick(item)}
-            >
-              <span>
-                <FaSearch size={12} />
-              </span>
-              {item.title || item.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  ) : null;
+  return (
+    showTrending && (
+      <div className={styles.trending} ref={trendingRef}>
+        {!searchQuery && (
+          <div className={styles['trending-heading']}>
+            <h2>
+              <HiTrendingUp size={20} /> Trending
+            </h2>
+          </div>
+        )}
+        <ul className={searchQuery ? `${styles['has-top-border']}` : ''}>
+          {trendingItems.map((item: TrendingResult) => (
+            <li key={item.id}>
+              <button
+                type="button"
+                aria-label={item.title || item.name}
+                onClick={() => handleItemClick(item)}
+              >
+                <span>
+                  <FaSearch size={12} />
+                </span>
+                {item.title || item.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  );
 };
 
 export default Trending;

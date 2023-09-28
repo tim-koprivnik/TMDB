@@ -54,7 +54,7 @@ const SearchResults: FC<SearchResultsProps> = ({
 
   const categoryFilter = selectedCategory === '' ? 'multi' : selectedCategory;
   const { data, loading, error } = useFetch<SearchResultData>(
-    `https://api.themoviedb.org/3/search/${categoryFilter}?api_key=${MOVIEDB_API_KEY}&language=en-US&query=${searchQuery}&page=${currentPage}&include_adult=false`
+    `/api/search?category=${categoryFilter}&query=${searchQuery}&page=${currentPage}`
   );
 
   const handlePageChange = (newPage: number | string) => {

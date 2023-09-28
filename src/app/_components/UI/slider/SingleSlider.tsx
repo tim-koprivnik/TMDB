@@ -18,25 +18,16 @@ interface SliderData {
 
 interface SingleSliderProps {
   title: string;
-  baseURL: string;
-  apiKey: string;
   tabs: { name: string; endpoint: string }[];
 }
 
-const SingleSlider: FC<SingleSliderProps> = ({
-  title,
-  baseURL,
-  apiKey,
-  tabs,
-}) => {
+const SingleSlider: FC<SingleSliderProps> = ({ title, tabs }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
-  const [url, setUrl] = useState(
-    `${baseURL}${activeTab.endpoint}?api_key=${apiKey}`
-  );
+  const [url, setUrl] = useState(`/api${activeTab.endpoint}`);
 
   useEffect(() => {
-    setUrl(`${baseURL}${activeTab.endpoint}?api_key=${apiKey}`);
-  }, [activeTab, baseURL, apiKey]);
+    setUrl(`/api${activeTab.endpoint}`);
+  }, [activeTab]);
 
   const { data, loading, error } = useFetch<SliderData>(url);
   const results = data?.results;

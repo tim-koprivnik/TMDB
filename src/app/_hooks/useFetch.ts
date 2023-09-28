@@ -23,16 +23,16 @@ const useFetch = <T>(url: string): FetchData<T> => {
       try {
         abortController.current.abort();
         abortController.current = new AbortController();
-        const response = await fetch(url, {
+        const res = await fetch(url, {
           signal: abortController.current.signal,
         });
 
-        if (!response.ok) {
+        if (!res.ok) {
           throw new Error('Fetch failed');
         }
 
-        const responseData: T = await response.json();
-        setData(responseData);
+        const resData: T = await res.json();
+        setData(resData);
         setLoading(false);
       } catch (err: unknown) {
         if (err instanceof Error) {

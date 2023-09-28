@@ -7,6 +7,7 @@ import { setSearchQuery } from '../../_store/search/searchSlice';
 import { RootState } from '../../_store/store';
 import { MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
 import useFetchMultiple from '../useFetchMultiple';
+import useFetch from '../useFetch';
 
 export interface CategoryCounts {
   movie: number;
@@ -52,11 +53,9 @@ export const useSearchLogic = () => {
   const searchQueryFromURL = searchParams.get('query');
   const searchQuery = searchQueryFromURL || reduxSearchQuery || '';
 
-  const urls = categories.map(
-    category =>
-      `https://api.themoviedb.org/3/search/${category}?api_key=${MOVIEDB_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
+  const { data, loading, error } = useFetch<CategoryData[]>(
+    `/api/multi-search?query=${searchQuery}`
   );
-  const { data, loading, error } = useFetchMultiple(urls, [searchQuery]);
 
   const handleCategoryClick = (category: string) => {
     setCurrentPage(1);

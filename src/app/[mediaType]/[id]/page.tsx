@@ -53,7 +53,7 @@ export default function MediaDetailsPage() {
   const { mediaType: rawMediaType, id: rawId } = useParams();
   const mediaType = rawMediaType as string;
   const id = rawId as string;
-  const url = `https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${MOVIEDB_API_KEY}&language=en-US`;
+  const url = `/api/media-details?mediaType=${mediaType}&id=${id}`;
 
   const {
     data: details,

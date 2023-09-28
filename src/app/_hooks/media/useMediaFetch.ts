@@ -33,6 +33,7 @@ const useMediaFetch = ({
   const dispatch = useDispatch();
 
   const shouldSkipQuery = !mediaType || !shouldFetchMedia;
+  const shouldSkipGenresQuery = !mediaType;
 
   const {
     data: mediaData,
@@ -54,14 +55,14 @@ const useMediaFetch = ({
     error: genresError,
     isError: isGenresError,
     isLoading: isGenresLoading,
-  } = useFetchGenresQuery({ mediaType });
+  } = useFetchGenresQuery({ mediaType }, { skip: shouldSkipGenresQuery });
 
   const isLoading = isMediaLoading || isGenresLoading;
   const error = mediaError || genresError;
   const isError = isMediaError || isGenresError;
 
   useEffect(() => {
-    if (mediaData && !mediaError) {
+    if (mediaData && mediaData.results && !mediaError) {
       let newMediaList = [];
       if (page === 1) {
         newMediaList = mediaData.results;
@@ -73,8 +74,9 @@ const useMediaFetch = ({
       }
 
       if (
-        newMediaList.length !== media.length ||
-        !newMediaList.every((item, index) => item.id === media[index].id)
+        newMediaList &&
+        (newMediaList.length !== media.length ||
+          !newMediaList.every((item, index) => item.id === media[index].id))
       ) {
         dispatch(setTotalPages(mediaData.totalPages));
         dispatch(setMedia(newMediaList));

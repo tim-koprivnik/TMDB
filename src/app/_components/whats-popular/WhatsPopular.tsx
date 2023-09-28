@@ -2,35 +2,28 @@
 
 import { FC } from 'react';
 import SingleSlider from '../UI/slider/SingleSlider';
-import { MOVIEDB_BASE_URL, MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
 
 const WhatsPopular: FC = () => (
   <>
     <SingleSlider
       title="Trending"
-      baseURL={MOVIEDB_BASE_URL}
-      apiKey={MOVIEDB_API_KEY}
       tabs={[
-        { name: 'Today', endpoint: '/trending/all/day' },
-        { name: 'This Week', endpoint: '/trending/all/week' },
+        { name: 'Today', endpoint: '/media-trending-today' },
+        { name: 'This Week', endpoint: '/media-trending-week' },
       ]}
     />
     <SingleSlider
       title="What's Popular"
-      baseURL={MOVIEDB_BASE_URL}
-      apiKey={MOVIEDB_API_KEY}
       tabs={[
-        { name: 'Movies', endpoint: '/movie/popular' },
-        { name: 'TV Shows', endpoint: '/tv/popular' },
+        { name: 'Movies', endpoint: '/movies-popular' },
+        { name: 'TV Shows', endpoint: '/tv-popular' },
       ]}
     />
     <SingleSlider
       title="Free to Watch"
-      baseURL={MOVIEDB_BASE_URL}
-      apiKey={MOVIEDB_API_KEY}
       tabs={[
-        { name: 'Movies', endpoint: '/discover/movie' },
-        { name: 'TV Shows', endpoint: '/discover/tv' },
+        { name: 'Movies', endpoint: '/movies-discover' },
+        { name: 'TV Shows', endpoint: '/tv-discover' },
       ]}
     />
   </>

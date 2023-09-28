@@ -27,19 +27,19 @@ const useFetchMultiple = <T>(
       abortControllers.current = urls.map(() => new AbortController());
 
       try {
-        const allResponses = await Promise.all(
+        const allRes = await Promise.all(
           urls.map(async (url, index) => {
-            const response = await fetch(url, {
+            const res = await fetch(url, {
               signal: abortControllers.current[index].signal,
             });
-            if (!response.ok) {
+            if (!res.ok) {
               throw new Error('Fetch failed');
             }
-            return response.json();
+            return res.json();
           })
         );
 
-        setData(allResponses);
+        setData(allRes);
         setLoading(false);
       } catch (err: unknown) {
         if (err instanceof Error) {

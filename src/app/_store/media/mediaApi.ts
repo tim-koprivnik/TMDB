@@ -2,7 +2,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const MOVIEDB_BASE_URL = 'https://api.themoviedb.org/3';
-export const MOVIEDB_API_KEY = process.env.NEXT_PUBLIC_MOVIEDB_API_KEY || '';
+export const MOVIEDB_API_KEY = process.env.MOVIEDB_API_KEY || '';
 
 export interface Media {
   [key: string]: string | number | string[] | number[] | undefined;
@@ -43,7 +43,7 @@ interface GenreResponse {
 
 const mediaApi = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: MOVIEDB_BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'api' }),
   tagTypes: ['Media'],
   endpoints: builder => ({
     fetchMedia: builder.query<
@@ -56,11 +56,11 @@ const mediaApi = createApi({
       }
     >({
       query: ({ mediaType, activeSort, activeFilter, page }) => ({
-        url: `/discover/${mediaType}`,
+        url: `/media`,
         params: {
-          sort_by: activeSort,
-          with_genres: activeFilter.join(','),
-          api_key: MOVIEDB_API_KEY,
+          mediaType,
+          activeSort,
+          activeFilter: activeFilter.join(','),
           page,
         },
       }),
@@ -75,12 +75,15 @@ const mediaApi = createApi({
       ],
     }),
     fetchGenres: builder.query<GenreResponse, { mediaType: string }>({
-      query: ({ mediaType }) =>
-        `/genre/${mediaType}/list?api_key=${MOVIEDB_API_KEY}`,
+      query: ({ mediaType }) => ({
+        url: `/genre`,
+        params: {
+          mediaType,
+        },
+      }),
     }),
   }),
 });
 
 export const { useFetchMediaQuery, useFetchGenresQuery } = mediaApi;
-
 export default mediaApi;
