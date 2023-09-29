@@ -21,7 +21,9 @@ const Loader: FC<LoaderProps> = ({ className = '', fullScreen = false }) => {
     </div>
   );
 
-  return fullScreen ? ReactDOM.createPortal(loader, document.body) : loader;
+  return typeof document !== 'undefined' && fullScreen
+    ? ReactDOM.createPortal(loader, document.body)
+    : loader;
 };
 
 export default Loader;

@@ -45,7 +45,7 @@ const ErrorMessage: FC<ErrorMessageProps> = ({
     </div>
   );
 
-  return fullScreen ? (
+  return typeof document !== 'undefined' && fullScreen ? (
     ReactDOM.createPortal(errorMessage, document.body)
   ) : (
     <PageWrapper>{errorMessage}</PageWrapper>
