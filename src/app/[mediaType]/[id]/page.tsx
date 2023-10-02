@@ -2,10 +2,8 @@
 
 import styles from './MediaDetailsPage.module.scss';
 import { SyntheticEvent, useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import dynamic from 'next/dynamic';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
 import useFetch from '../../_hooks/useFetch';
 import { formatRuntime, formatDate } from '../../_utils/helpers';
 import { IoListSharp } from 'react-icons/io5';
@@ -13,16 +11,8 @@ import { AiFillHeart, AiFillStar } from 'react-icons/ai';
 import { BsFillBookmarkFill } from 'react-icons/bs';
 import UserScore from '../../_components/UI/user-score/UserScore';
 import Tooltip from '../../_components/UI/tooltip/Tooltip';
-
-const Loader = dynamic(() => import('../../_components/UI/loader/Loader'), {
-  ssr: false,
-});
-const ErrorMessage = dynamic(
-  () => import('../../_components/UI/error-message/ErrorMessage'),
-  {
-    ssr: false,
-  }
-);
+import Loader from '../../_components/UI/loader/Loader';
+import ErrorMessage from '../../_components/UI/error-message/ErrorMessage';
 import PageWrapper from '../../_components/UI/page-wrapper/PageWrapper';
 import { Genre } from '../../_store/media/mediaApi';
 import Main from '../../_layouts/main/Main';
