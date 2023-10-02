@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { setSearchQuery } from '../../_store/search/searchSlice';
 import { RootState } from '../../_store/store';
-import { MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
-import useFetchMultiple from '../useFetchMultiple';
 import useFetch from '../useFetch';
 
 export interface CategoryCounts {
