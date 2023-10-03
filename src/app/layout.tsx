@@ -2,7 +2,7 @@ import './globals.css';
 import './index.scss';
 import type { Metadata } from 'next';
 import { sourceSans } from './fonts';
-import ReduxProvider from './_store/provider';
+import ReduxProvider from './_store/providers';
 import Header from './_layouts/header/Header';
 import Footer from './_layouts/footer/Footer';
 
