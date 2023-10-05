@@ -7,15 +7,21 @@ interface FetchData<T> {
 }
 
 const fetcher = async (url: string) => {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error('Fetch failed');
-  return response.json();
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Fetch failed');
+    return response.json();
+  } catch (error) {
+    throw error;
+  }
 };
 
-const useFetch = <T>(url: string): FetchData<T> => {
-  const { data, error, isLoading } = useQuery<T, Error>(
-    ['fetchData', url],
-    () => fetcher(url)
+const useFetch = <T>(
+  url: string,
+  cacheKey: string = 'fetchData'
+): FetchData<T> => {
+  const { data, error, isLoading } = useQuery<T, Error>([cacheKey, url], () =>
+    fetcher(url)
   );
 
   return {
