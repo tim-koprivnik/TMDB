@@ -20,8 +20,12 @@ const useFetch = <T>(
   url: string,
   cacheKey: string = 'fetchData'
 ): FetchData<T> => {
-  const { data, error, isLoading } = useQuery<T, Error>([cacheKey, url], () =>
-    fetcher(url)
+  const { data, error, isLoading } = useQuery<T, Error>(
+    [cacheKey, url],
+    () => fetcher(url),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   return {
