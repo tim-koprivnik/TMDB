@@ -15,7 +15,6 @@ const useFetchMultiple = <T>(
   const [data, setData] = useState<T[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-
   const abortControllers = useRef<AbortController[]>([]);
 
   useEffect(() => {
@@ -44,7 +43,7 @@ const useFetchMultiple = <T>(
       } catch (err: unknown) {
         if (err instanceof Error) {
           if (err.name === 'AbortError') {
-            console.error('Fetch aborted');
+            setError(new Error('Fetch aborted'));
           } else {
             setError(err);
           }

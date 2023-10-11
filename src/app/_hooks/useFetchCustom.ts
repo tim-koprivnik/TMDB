@@ -38,11 +38,11 @@ const useFetch = <T>(url: string): FetchData<T> => {
             err.name === 'AbortError' &&
             !abortController.current.signal.aborted
           ) {
-            console.log('Fetch aborted');
+            setError(new Error('Fetch aborted'));
           } else {
             setError(err);
-            setLoading(false);
           }
+          setLoading(false);
         } else {
           throw err;
         }
