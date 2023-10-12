@@ -9,6 +9,7 @@ This is an onboarding app for [Agiledrop](https://www.agiledrop.com/), created i
 - [TypeScript](https://www.typescriptlang.org/)
 - [SCSS](https://sass-lang.com/)
 - [React Redux](https://react-redux.js.org/)
+- [Tanstack/React Query](https://tanstack.com/query/latest/)
 - [Swiper](https://swiperjs.com/react)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
