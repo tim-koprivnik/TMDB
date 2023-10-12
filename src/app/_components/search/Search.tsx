@@ -11,9 +11,8 @@ import {
   useEffect,
 } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setSearchQuery } from '../../_store/search/searchSlice';
-import { RootState } from '../../_store/store';
 import { debounce } from '../../_utils/helpers';
 import { IconContext } from 'react-icons';
 import { FaSearch } from 'react-icons/fa';
