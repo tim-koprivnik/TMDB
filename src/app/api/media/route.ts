@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { MOVIEDB_BASE_URL } from '../../_store/media/mediaApi';
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const mediaType = searchParams.get('mediaType');
   const activeSort = searchParams.get('activeSort');
