@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { NextResponse } from 'next/server';
 import { MOVIEDB_BASE_URL, MOVIEDB_API_KEY } from '../../_store/media/mediaApi';
 
