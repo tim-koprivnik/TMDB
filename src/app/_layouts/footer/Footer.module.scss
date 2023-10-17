@@ -18,11 +18,12 @@
   }
 
   a {
-    color: $color-primary-light;
+    color: $color-white;
+    font-weight: 900;
     text-decoration: none;
 
     &:hover {
-      font-weight: 900;
+      color: $color-accent-green;
     }
   }
 }
