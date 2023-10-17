@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function PopularMediaPage(request: NextRequest) {
-  const data = await GET(request);
+  const response = await GET(request);
+  const data = await response.json();
   return <PopularMediaPageClient data={data} />;
 }

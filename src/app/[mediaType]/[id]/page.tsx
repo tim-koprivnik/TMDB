@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function MediaDetailsPage(request: NextRequest) {
-  const data = await GET(request);
+  const response = await GET(request);
+  const data = await response.json();
   return <MediaDetailsPageClient data={data} />;
 }

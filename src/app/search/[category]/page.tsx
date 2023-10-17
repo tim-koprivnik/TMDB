@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SearchPage(request: NextRequest) {
-  const data = await GET(request);
+  const response = await GET(request);
+  const data = await response.json();
   return <SearchPageWithCategoryClient data={data} />;
 }
