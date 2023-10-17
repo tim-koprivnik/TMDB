@@ -20,7 +20,7 @@ const Logo: FC = () => (
     <Image
       src={logoMobile}
       alt="TMDB logo"
-      width={100}
+      width={60}
       height={60}
       className={styles['logo-mobile']}
       priority
