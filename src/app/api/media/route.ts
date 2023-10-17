@@ -2,11 +2,14 @@ import { NextResponse, NextRequest } from 'next/server';
 import { MOVIEDB_BASE_URL } from '../../_store/media/mediaApi';
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const mediaType = searchParams.get('mediaType');
-  const activeSort = searchParams.get('activeSort');
-  const activeFilter = searchParams.get('activeFilter');
-  const page = searchParams.get('page');
+  let searchParams;
+  if (request.nextUrl) {
+    searchParams = request.nextUrl.searchParams;
+  }
+  const mediaType = searchParams?.get('mediaType');
+  const activeSort = searchParams?.get('activeSort');
+  const activeFilter = searchParams?.get('activeFilter');
+  const page = searchParams?.get('page');
   const apiKey = process.env.MOVIEDB_API_KEY;
 
   if (!mediaType) {
