@@ -1,4 +1,3 @@
-import { NextRequest } from 'next/server';
 import type { Metadata } from 'next';
 import { GET } from '../../api/multi-search/route';
 import SearchPageWithCategoryClient from './client';
@@ -8,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Search for movies, TV shows, people, and more.',
 };
 
-export default async function SearchPage(request: NextRequest) {
+export default async function SearchPage(request: any) {
   const response = await GET(request);
   const data = await response.json();
   return <SearchPageWithCategoryClient data={data} />;
