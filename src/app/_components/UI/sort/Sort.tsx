@@ -39,11 +39,7 @@ const Sort: FC<SortProps> = ({
       className={`${styles.sort} ${!isSortVisible ? styles.collapsed : ''}`}
     >
       <h2>
-        <button
-          type="button"
-          onClick={handleSortHeaderClick}
-          aria-label="Toggle sort options"
-        >
+        <button type="button" onClick={handleSortHeaderClick}>
           Sort{' '}
           <span>
             {' '}

@@ -106,8 +106,8 @@ export default function MediaDetailsPageClient({
               <Image
                 src={imgSrc}
                 alt={details?.title}
-                width={350}
-                height={500}
+                width={500}
+                height={750}
                 onError={(e: SyntheticEvent<HTMLImageElement>) => {
                   setImgSrc('/assets/images/placeholder-movie-image.jpeg');
                 }}
@@ -153,7 +153,7 @@ export default function MediaDetailsPageClient({
                 </Tooltip>
               </div>
               <em className={styles.tagline}>{details?.tagline}</em>
-              <h3>Overview</h3>
+              <h2>Overview</h2>
               <p>
                 {details?.overview
                   ? details?.overview

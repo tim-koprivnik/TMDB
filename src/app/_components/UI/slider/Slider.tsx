@@ -89,14 +89,15 @@ const Slider: FC<SliderProps> = ({
               >
                 <Image
                   className={styles['slider-image']}
-                  src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}
                   alt={item.title || item.name || ''}
-                  width={500}
-                  height={500}
+                  width={200}
+                  height={300}
                   onError={(e: SyntheticEvent<HTMLImageElement>) => {
                     e.currentTarget.src =
                       '/assets/images/placeholder-movie-image.jpeg';
                   }}
+                  layout="responsive"
                   priority
                 />
               </Link>

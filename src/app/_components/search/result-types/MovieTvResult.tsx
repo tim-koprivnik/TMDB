@@ -28,7 +28,7 @@ const MovieTvResult: FC<MovieTvResultProps> = ({ result, category = '' }) => {
     overview.length > 200 ? `${overview.slice(0, 200)}...` : overview;
   const mediaType = result.media_type || category;
   const [imgSrc, setImgSrc] = useState(
-    `https://image.tmdb.org/t/p/w500${result.poster_path}`
+    `https://image.tmdb.org/t/p/w200${result.poster_path}`
   );
 
   return (
@@ -37,8 +37,8 @@ const MovieTvResult: FC<MovieTvResultProps> = ({ result, category = '' }) => {
         <Image
           src={imgSrc}
           alt={result.title || result.name || ''}
-          width={500}
-          height={500}
+          width={200}
+          height={300}
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
             setImgSrc('/assets/images/placeholder-movie-image.jpeg');
           }}

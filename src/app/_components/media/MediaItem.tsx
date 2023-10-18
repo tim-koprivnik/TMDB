@@ -33,7 +33,7 @@ const MediaItem: FC<MediaItemProps> = ({
           src={imgSrc}
           alt={media[mediaProperty]?.toString() || ''}
           width={200}
-          height={280}
+          height={300}
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
             setImgSrc('/assets/images/placeholder-media-details-image.png');
           }}

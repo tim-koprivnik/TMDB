@@ -198,7 +198,7 @@ export default function PopularMediaPageClient({
           <ErrorMessage>No results found.</ErrorMessage>
         )}
         <>
-          <ul className={styles.list}>
+          <div className={styles.list}>
             {media?.map(m => (
               <MediaItem
                 key={`${mediaType}-${m.id}`}
@@ -208,7 +208,7 @@ export default function PopularMediaPageClient({
                 releaseDateProperty={releaseDateProperty}
               />
             ))}
-          </ul>
+          </div>
           {page < totalPages && (
             <button
               type="button"

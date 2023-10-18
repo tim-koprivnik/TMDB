@@ -28,11 +28,7 @@ const Filters: FC<FiltersProps> = ({
     className={`${styles.filters} ${!isFiltersVisible ? styles.collapsed : ''}`}
   >
     <h2>
-      <button
-        type="button"
-        onClick={handleFiltersHeaderClick}
-        aria-label="Toggle filter options"
-      >
+      <button type="button" onClick={handleFiltersHeaderClick}>
         Filters{' '}
         <span>
           {' '}
