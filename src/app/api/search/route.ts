@@ -1,7 +1,16 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { MOVIEDB_BASE_URL } from '../../_store/media/mediaApi';
 
-export async function GET(request: NextRequest) {
+interface ErrorResponse {
+  status_message: string;
+}
+interface ResponseData {
+  [key: string]: any;
+}
+
+export async function GET<T = ResponseData>(
+  request: NextRequest
+): Promise<NextResponse<T>> {
   let searchParams;
   if (request.nextUrl) {
     searchParams = request.nextUrl.searchParams;
@@ -15,10 +24,12 @@ export async function GET(request: NextRequest) {
     const res = await fetch(
       `${MOVIEDB_BASE_URL}/search/${category}?api_key=${apiKey}&language=en-US&query=${query}&page=${page}&include_adult=false`
     );
-    const data = await res.json();
+    const data = (await res.json()) as T;
 
     if (!res.ok) {
-      throw new Error(data.status_message || 'Failed to fetch data');
+      throw new Error(
+        (data as ErrorResponse).status_message || 'Failed to fetch data'
+      );
     }
 
     return NextResponse.json(data);
@@ -26,6 +37,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       { error: 'Failed to fetch data' },
       { status: 500 }
-    );
+    ) as NextResponse<T>;
   }
 }
