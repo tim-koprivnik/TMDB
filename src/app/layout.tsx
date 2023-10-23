@@ -7,8 +7,8 @@ import Header from './_layouts/header/Header';
 import Footer from './_layouts/footer/Footer';
 
 export const metadata: Metadata = {
-  title: 'TMDB Movie app',
-  description: 'Next.js onboarding',
+  title: 'TMDB',
+  description: 'Movie database app built with Next.js',
 };
 
 export default function RootLayout({
