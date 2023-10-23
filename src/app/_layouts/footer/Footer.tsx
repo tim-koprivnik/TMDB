@@ -9,13 +9,13 @@ const Footer: FC = () => (
       &copy;
       {new Date().getFullYear()}{' '}
       <a
-        href="https://tim-koprivnik.netlify.app/"
+        href="https://www.agiledrop.com/"
         target="_blank"
         rel="noreferrer noopener"
       >
-        Tim Koprivnik
+        Agiledrop {''}
       </a>
-      . All rights reserved.
+      (Tim Koprivnik). All rights reserved.
     </p>
   </footer>
 );
