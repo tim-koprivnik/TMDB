@@ -19,10 +19,10 @@ const Header: FC = () => {
           <Navbar />
         </div>
         <div className={styles['header-additional-wrap']}>
-          <Plus />
-          <LanguageSwitcher />
-          <Login />
-          <Join />
+          {/* <Plus /> */}
+          {/* <LanguageSwitcher /> */}
+          {/* <Login /> */}
+          {/* <Join /> */}
           <Search showSearchIcon showTrending />
         </div>
       </div>
